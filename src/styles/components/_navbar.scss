@@ -7,6 +7,14 @@
 
 	.logo-wrapper {
 		cursor: pointer;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.adjusted-width {
+		width: 140px;
 	}
 
 	nav {

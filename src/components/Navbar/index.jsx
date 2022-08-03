@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { Button, IconButton, SwipeableDrawer } from '@mui/material';
+import { useNavigate } from 'react-router';
+import logoWhite from '../../assets/logo-white.svg';
 import logo from '../../assets/logo.svg';
+import menuWhite from '../../assets/header/menu-white.svg';
 import menu from '../../assets/header/menu.svg';
 
-const Navbar = () => {
+const Navbar = ({ darkMode }) => {
 	const [displayDrawer, setDisplayDrawer] = useState(false);
+	const navigate = useNavigate();
 
 	const toggleDrawer = (open) => (event) => {
 		if (
@@ -19,8 +23,11 @@ const Navbar = () => {
 	};
 	return (
 		<div className="navbar">
-			<div className="logo-wrapper">
-				<img src={logo} alt="Ace bridge" />
+			<div
+				className={`logo-wrapper ${darkMode ? '' : 'adjusted-width'}`}
+				onClick={() => navigate('/')}
+			>
+				<img src={darkMode ? logoWhite : logo} alt="Ace bridge" />
 			</div>
 			<nav>
 				{links.map((link) => (
@@ -32,7 +39,7 @@ const Navbar = () => {
 
 			<div className="drawer-wrapper">
 				<IconButton onClick={toggleDrawer(true)}>
-					<img src={menu} alt="menu" />
+					<img src={darkMode ? menuWhite : menu} alt="menu" />
 				</IconButton>
 				<SwipeableDrawer
 					anchor="right"
