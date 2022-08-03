@@ -5,7 +5,7 @@ import underline from '../../assets/header/underline.svg';
 const Header = () => {
 	return (
 		<div className="header">
-			<Navbar />
+			<Navbar darkMode />
 
 			<div className="heading-wrapper">
 				<h1>
@@ -13,7 +13,9 @@ const Header = () => {
 				</h1>
 				<img src={underline} alt="" />
 				<p>The best place to purchase properties and buidling materials</p>
-				<Button variant="outlined">Get Started</Button>
+				<Button variant="outlined" href="#properties">
+					Get Started
+				</Button>
 			</div>
 		</div>
 	);

@@ -40,11 +40,12 @@
 			margin-bottom: 60px;
 		}
 
-		button {
-			display: block;
+		button,
+		a {
+			display: flex;
 			margin: auto;
-			border: 1px solid white;
-			color: white;
+			border: 1px solid $color-white;
+			color: $color-white;
 			width: 200px;
 			height: 60px;
 			text-transform: capitalize;
