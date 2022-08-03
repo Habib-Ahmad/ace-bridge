@@ -1,3 +1,9 @@
+@mixin space-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 @mixin responsive($breakPoint) {
 	@if ($breakPoint == xs) {
 		@media (max-width: 0px) {

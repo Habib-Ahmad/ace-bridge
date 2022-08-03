@@ -1,6 +1,5 @@
-@use './abstracts' as *;
-
 @use './base';
 
-@import 'components/header';
-@import 'components/navbar';
+@use './components/property-card';
+
+@use './pages/home';

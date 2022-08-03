@@ -1,0 +1,115 @@
+@use '../abstracts' as *;
+
+.property-card {
+	position: relative;
+	max-width: 280px;
+	height: 450px;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 6px;
+	cursor: pointer;
+
+	.tag {
+		position: absolute;
+		top: 20px;
+		z-index: 100;
+		left: -25px;
+		display: grid;
+		place-items: center;
+		width: 80px;
+		height: 25px;
+		border-top-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		background-color: $color-primary;
+		color: $color-white;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 1px;
+	}
+
+	.image-wrapper {
+		position: relative;
+		height: 65%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+		}
+
+		.type {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			background-color: rgba(1, 90, 185, 0.84);
+			color: $color-white;
+			border-radius: 20px;
+			padding: 5px 10px;
+			font-size: 0.75rem;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+	}
+
+	.body {
+		padding: 15px 10px;
+
+		.details {
+			@include space-between;
+			margin-bottom: 10px;
+
+			.title {
+				font-weight: 700;
+				margin-right: 10px;
+			}
+
+			.price {
+				background-color: $color-secondary;
+				color: $color-primary;
+				padding: 5px 10px;
+				border-radius: 22px;
+				font-weight: 800;
+				font-size: 0.8rem;
+			}
+		}
+
+		.location {
+			color: $color-text-light;
+			font-size: 0.75rem;
+			font-weight: 500;
+			margin-bottom: 30px;
+		}
+
+		.specs {
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+
+			.spec {
+				margin-left: 10px;
+
+				.icon-wrapper {
+					display: flex;
+					margin-bottom: 5px;
+
+					img {
+						margin-right: 10px;
+					}
+
+					p {
+						font-size: 1rem;
+						font-weight: 500;
+						color: $color-text-light;
+					}
+				}
+			}
+
+			p {
+				font-size: 0.75rem;
+				color: $color-text-light;
+			}
+		}
+	}
+}
