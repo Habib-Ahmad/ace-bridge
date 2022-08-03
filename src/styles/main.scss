@@ -1,7 +1,6 @@
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@use './abstracts' as *;
 
-@import 'base/base';
+@use './base';
 
 @import 'components/header';
 @import 'components/navbar';
