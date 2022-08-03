@@ -1,7 +1,22 @@
-import { Button } from '@mui/material';
+import { useState } from 'react';
+import { Button, IconButton, SwipeableDrawer } from '@mui/material';
 import logo from '../../assets/logo.svg';
+import menu from '../../assets/header/menu.svg';
 
 const Navbar = () => {
+	const [displayDrawer, setDisplayDrawer] = useState(false);
+
+	const toggleDrawer = (open) => (event) => {
+		if (
+			event &&
+			event.type === 'keydown' &&
+			(event.key === 'Tab' || event.key === 'Shift')
+		) {
+			return;
+		}
+
+		setDisplayDrawer(open);
+	};
 	return (
 		<div className="navbar">
 			<div className="logo-wrapper">
@@ -14,6 +29,31 @@ const Navbar = () => {
 					</Button>
 				))}
 			</nav>
+
+			<div className="drawer-wrapper">
+				<IconButton onClick={toggleDrawer(true)}>
+					<img src={menu} alt="menu" />
+				</IconButton>
+				<SwipeableDrawer
+					anchor="right"
+					open={displayDrawer}
+					onClose={toggleDrawer(false)}
+					onOpen={toggleDrawer(true)}
+				>
+					<nav className="mobile-nav">
+						{links.map((link) => (
+							<Button
+								variant="text"
+								key={link.name}
+								href={link.to}
+								disableRipple={false}
+							>
+								{link.name}
+							</Button>
+						))}
+					</nav>
+				</SwipeableDrawer>
+			</div>
 		</div>
 	);
 };
