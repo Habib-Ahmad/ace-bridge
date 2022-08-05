@@ -2,9 +2,13 @@
 
 .section-header {
 	@include space-between;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 
 	img {
 		width: 150px;
+
+		@include responsive(md) {
+			display: none;
+		}
 	}
 }

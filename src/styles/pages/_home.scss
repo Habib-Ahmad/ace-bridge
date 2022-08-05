@@ -1,3 +1,13 @@
 @forward '../components/navbar';
 @forward '../components/header';
 @forward '../components/properties';
+
+@use '../abstracts' as *;
+
+.content-wrapper {
+	padding: 0 10vw;
+
+	@include responsive(sm) {
+		padding: 0 5vw;
+	}
+}

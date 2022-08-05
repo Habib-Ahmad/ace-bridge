@@ -1,3 +1,14 @@
 .properties {
 	padding-top: 60px;
+
+	.custom-styles {
+		display: flex;
+		align-items: center;
+
+		.slick-slide {
+			display: grid;
+			place-items: center;
+			flex: 1;
+		}
+	}
 }
