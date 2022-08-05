@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+.section-header {
+	@include space-between;
+	margin-bottom: 100px;
+
+	img {
+		width: 150px;
+	}
+}
