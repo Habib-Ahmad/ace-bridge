@@ -9,10 +9,12 @@ export const theme = createTheme({
 			styleOverrides: {
 				root: {
 					fontFamily: 'inherit',
+					textTransform: 'inherit',
+					fontWeight: 700,
 				},
 
 				text: {
-					textTransform: 'inherit',
+					fontWeight: 500,
 					color: 'white',
 
 					'&:hover': {

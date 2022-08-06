@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Properties from '../components/Properties';
+import Projects from '../components/Projects';
 
 const Home = () => {
 	return (
@@ -8,9 +9,10 @@ const Home = () => {
 
 			<div className="content-wrapper">
 				<Properties />
+				<Projects />
 			</div>
 
-			<div style={{ height: '200px' }}></div>
+			<div style={{ height: '100vh' }}></div>
 		</>
 	);
 };

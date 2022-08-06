@@ -1,0 +1,14 @@
+.projects {
+	margin-top: 150px;
+
+	.collage-wrapper {
+		display: grid;
+		place-items: center;
+		margin-bottom: 40px;
+	}
+
+	.button-wrapper {
+		display: flex;
+		justify-content: flex-end;
+	}
+}

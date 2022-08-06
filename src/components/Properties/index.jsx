@@ -44,6 +44,7 @@ const Properties = () => {
 			{
 				breakpoint: 900,
 				settings: {
+					speed: 200,
 					swipeToSlide: true,
 					arrows: false,
 					slidesToShow: 2,
@@ -52,6 +53,7 @@ const Properties = () => {
 			{
 				breakpoint: 750,
 				settings: {
+					speed: 200,
 					swipeToSlide: true,
 					arrows: false,
 					slidesToShow: 1,
