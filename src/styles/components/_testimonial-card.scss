@@ -1,0 +1,31 @@
+@use '../abstracts' as *;
+
+.testimonial-card {
+	position: relative;
+	border: 1px solid #cfcfcf;
+	border-radius: 25px;
+	height: 300px;
+	max-width: 400px;
+	min-width: 280px;
+	display: grid;
+	place-items: center;
+	padding: 20px;
+
+	img {
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 60px;
+	}
+
+	.text {
+		font-weight: 700;
+		text-align: left;
+	}
+
+	.name {
+		display: flex;
+		margin-left: auto;
+	}
+}

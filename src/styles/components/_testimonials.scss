@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.testimonials {
+	margin-top: 150px;
+	text-align: center;
+
+	.cards-wrapper {
+		width: 100%;
+		height: 400px;
+		margin-top: 40px;
+		display: flex;
+		align-items: center;
+		overflow-x: scroll;
+
+		.testimonial-card {
+			margin: 0 30px;
+
+			@include responsive(sm) {
+				margin: 0 15px;
+			}
+		}
+	}
+}
