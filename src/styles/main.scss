@@ -1,8 +1,10 @@
 @use './base';
 
-@use './components/property-card';
-@use './components/section-header';
-@use './components/testimonial-card';
+@use './Layout/layout';
 
 @use './pages/home';
 @use './pages/about-us';
+
+@use './components/property-card';
+@use './components/section-header';
+@use './components/testimonial-card';
