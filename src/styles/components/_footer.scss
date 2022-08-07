@@ -41,6 +41,10 @@
 			display: grid;
 			grid-template-columns: repeat(2, 70%);
 			grid-template-rows: repeat(3, 2rem);
+			white-space: nowrap;
+			@include responsive(sm) {
+				grid-template-columns: repeat(2, 50%);
+			}
 
 			button,
 			a {

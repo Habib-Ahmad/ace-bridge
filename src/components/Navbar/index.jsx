@@ -22,14 +22,14 @@ const Navbar = ({ darkMode }) => {
 		setDisplayDrawer(open);
 	};
 	return (
-		<div className="navbar">
+		<div className={`navbar ${darkMode ? '' : 'shadow'}`}>
 			<div
 				className={`logo-wrapper ${darkMode ? '' : 'adjusted-width'}`}
 				onClick={() => navigate('/')}
 			>
 				<img src={darkMode ? logoWhite : logo} alt="Ace bridge" />
 			</div>
-			<nav>
+			<nav className={`${darkMode ? '' : 'dark-links'}`}>
 				{links.map((link) => (
 					<Button variant="text" key={link.name} href={link.to}>
 						{link.name}
@@ -82,7 +82,7 @@ const links = [
 	},
 	{
 		name: 'About us',
-		to: '',
+		to: 'about',
 	},
 	{
 		name: 'Contact',
