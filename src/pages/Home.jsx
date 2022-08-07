@@ -3,6 +3,7 @@ import Properties from '../components/Properties';
 import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
 import Partners from '../components/Partners';
+import Footer from '../components/Footer';
 
 const Home = () => {
 	return (
@@ -16,7 +17,7 @@ const Home = () => {
 				<Partners />
 			</div>
 
-			<div style={{ height: '100vh' }}></div>
+			<Footer />
 		</>
 	);
 };
