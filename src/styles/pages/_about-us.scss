@@ -26,35 +26,4 @@
 			text-align: justify;
 		}
 	}
-
-	.img-wrapper {
-		position: relative;
-		width: 30%;
-		height: 350px;
-		margin-left: 100px;
-		@include responsive(md) {
-			margin-left: 0;
-			width: 100%;
-		}
-
-		img {
-			position: absolute;
-			width: 200px;
-			height: 200px;
-			object-fit: cover;
-			border-radius: 5px;
-		}
-
-		.img1 {
-			box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.3);
-			top: 0;
-			left: 0;
-		}
-
-		.img2 {
-			box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
-			bottom: 0;
-			right: 0;
-		}
-	}
 }
