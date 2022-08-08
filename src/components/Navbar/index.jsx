@@ -86,7 +86,7 @@ const links = [
 	},
 	{
 		name: 'Contact',
-		to: '',
+		to: 'contact-us',
 	},
 	{
 		name: 'Account',

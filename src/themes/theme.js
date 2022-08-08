@@ -1,6 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
+	typography: {
+		fontFamily: 'inherit',
+	},
 	components: {
 		MuiButton: {
 			defaultProps: {
@@ -8,7 +11,6 @@ export const theme = createTheme({
 			},
 			styleOverrides: {
 				root: {
-					fontFamily: 'inherit',
 					textTransform: 'inherit',
 					fontWeight: 700,
 				},
@@ -20,6 +22,22 @@ export const theme = createTheme({
 					'&:hover': {
 						backgroundColor: 'transparent',
 					},
+				},
+			},
+		},
+
+		MuiOutlinedInput: {
+			defaultProps: {},
+
+			styleOverrides: {
+				root: {},
+			},
+		},
+
+		MuiInputLabel: {
+			styleOverrides: {
+				root: {
+					fontWeight: 500,
 				},
 			},
 		},

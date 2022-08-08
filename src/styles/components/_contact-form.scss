@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.contact-form {
+	background-color: beige;
+	width: 100%;
+	border-radius: 5px;
+	padding: 40px;
+
+	.row {
+		@include space-between;
+		margin-bottom: 20px;
+		@include responsive(md) {
+			flex-direction: column;
+		}
+
+		.space {
+			width: 40px;
+			@include responsive(md) {
+				height: 20px;
+				width: 0;
+			}
+		}
+	}
+}
