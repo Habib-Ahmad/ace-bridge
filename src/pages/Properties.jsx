@@ -1,25 +1,19 @@
 import { useState, useEffect, useMemo } from 'react';
-import {
-	Button,
-	FormControl,
-	InputAdornment,
-	InputLabel,
-	MenuItem,
-	Select,
-	TextField,
-} from '@mui/material';
-import { Search } from '@mui/icons-material';
+import { Button } from '@mui/material';
 import { GetFilteredData } from '../functions';
 import PropertyCard from '../components/PropertyCard';
+import Filters from '../components/Filters';
+import Pagination from '../components/Pagination';
 
-const PAGE_LIMIT = 5;
+const PAGE_RANGE = 5;
+const CARDS_PER_PAGE = 12;
 
 const Properties = () => {
 	const [propertyList, setPropertyList] = useState([]);
 	const [page, setPage] = useState(1);
 	const [displaySearch, setDisplaySearch] = useState(false);
 	const [minPageLimit, setMinPageLimit] = useState(1);
-	const [maxPageLimit, setMaxPageLimit] = useState(PAGE_LIMIT);
+	const [maxPageLimit, setMaxPageLimit] = useState(PAGE_RANGE);
 	const [filters, setFilters] = useState({
 		listing: '',
 		location: '',
@@ -38,42 +32,12 @@ const Properties = () => {
 		});
 	};
 
-	const handleLoadLess = () => {
-		setPage(minPageLimit - 1);
-		setMinPageLimit((prev) => prev - PAGE_LIMIT);
-		setMaxPageLimit((prev) => prev - PAGE_LIMIT);
-	};
-
-	const handleLoadMore = () => {
-		setPage(maxPageLimit + 1);
-		setMinPageLimit((prev) => prev + PAGE_LIMIT);
-		setMaxPageLimit((prev) => prev + PAGE_LIMIT);
-	};
-
-	const handlePrev = () => {
-		setPage((prev) => {
-			const newPage = prev - 1;
-			if (newPage >= minPageLimit) return newPage;
-			handleLoadLess();
-			return minPageLimit - 1;
-		});
-	};
-
-	const handleNext = () => {
-		setPage((prev) => {
-			const newPage = prev + 1;
-			if (newPage <= maxPageLimit) return newPage;
-			handleLoadMore();
-			return maxPageLimit + 1;
-		});
-	};
-
 	const properties = useMemo(
 		() => GetFilteredData(filters, page, propertyList),
 		[filters, page, propertyList]
 	);
 
-	const numOfPages = Math.ceil(propertyList.length / 12);
+	const numOfPages = Math.ceil(propertyList.length / CARDS_PER_PAGE);
 	const pageButtons = new Array(numOfPages)
 		.fill('')
 		.map((item, index) => index + 1);
@@ -89,62 +53,11 @@ const Properties = () => {
 			>
 				Advanced search
 			</Button>
-			<div className={`filters ${displaySearch ? 'display' : ''}`}>
-				<FormControl fullWidth size="small">
-					<InputLabel>Listing</InputLabel>
-					<Select
-						label="Listing"
-						name="listing"
-						value={filters.listing}
-						onChange={handleChange}
-					>
-						<MenuItem value="sale">For sale</MenuItem>
-						<MenuItem value="rent">For rent</MenuItem>
-					</Select>
-				</FormControl>
-
-				<FormControl fullWidth size="small">
-					<InputLabel>Location</InputLabel>
-					<Select
-						label="Location"
-						name="location"
-						value={filters.location}
-						onChange={handleChange}
-					>
-						<MenuItem value="asokoro">Asokoro</MenuItem>
-					</Select>
-				</FormControl>
-
-				<FormControl fullWidth size="small">
-					<InputLabel>Property type</InputLabel>
-					<Select
-						label="Property type"
-						name="type"
-						value={filters.type}
-						onChange={handleChange}
-					>
-						<MenuItem value="office">Office space</MenuItem>
-						<MenuItem value="residential">Residential</MenuItem>
-					</Select>
-				</FormControl>
-
-				<TextField
-					variant="outlined"
-					size="small"
-					name="key"
-					fullWidth
-					label="Key word"
-					value={filters.key}
-					onChange={handleChange}
-					InputProps={{
-						endAdornment: (
-							<InputAdornment position="end">
-								<Search />
-							</InputAdornment>
-						),
-					}}
-				/>
-			</div>
+			<Filters
+				filters={filters}
+				handleChange={handleChange}
+				displaySearch={displaySearch}
+			/>
 
 			<div className="list">
 				{properties.map((property) => (
@@ -152,48 +65,24 @@ const Properties = () => {
 				))}
 			</div>
 
-			<div className="pagination">
-				<Button disabled={page < 2} variant="text" onClick={handlePrev}>
-					Prev
-				</Button>
-				{minPageLimit > PAGE_LIMIT && (
-					<Button className="dots" variant="text" onClick={handleLoadLess}>
-						&hellip;
-					</Button>
-				)}
-
-				{pageButtons.slice(minPageLimit - 1, maxPageLimit).map((pg) => (
-					<Button
-						className={`btn ${pg === page ? 'current' : ''}`}
-						key={pg}
-						variant="text"
-						onClick={() => setPage(pg)}
-					>
-						{pg}
-					</Button>
-				))}
-
-				{numOfPages > maxPageLimit && (
-					<Button className="dots" variant="text" onClick={handleLoadMore}>
-						&hellip;
-					</Button>
-				)}
-
-				<Button
-					disabled={page === pageButtons[pageButtons.length - 1]}
-					variant="text"
-					onClick={handleNext}
-				>
-					Next
-				</Button>
-			</div>
+			<Pagination
+				page={page}
+				numOfPages={numOfPages}
+				pageButtons={pageButtons}
+				minPageLimit={minPageLimit}
+				maxPageLimit={maxPageLimit}
+				PAGE_RANGE={PAGE_RANGE}
+				setPage={setPage}
+				setMinPageLimit={setMinPageLimit}
+				setMaxPageLimit={setMaxPageLimit}
+			/>
 		</div>
 	);
 };
 
 export default Properties;
 
-const data = new Array(120).fill('').map((card, index) => {
+const data = new Array(12).fill('').map((card, index) => {
 	const num = Math.floor(Math.random() * 10);
 	return {
 		id: index,
