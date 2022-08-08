@@ -1,8 +1,6 @@
 @use '../abstracts' as *;
 
 .footer {
-	// box-shadow: 0 0 0 100vmax $color-primary;
-	// clip-path: inset(0 -100vmax);
 	background-color: $color-primary;
 	color: $color-white;
 	padding: 50px 100px 40px;

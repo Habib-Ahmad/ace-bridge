@@ -1,5 +1,11 @@
+@use '../abstracts' as *;
+
 .projects {
-	margin-top: 150px;
+	margin-top: 100px;
+	padding: 50px 0;
+	background-color: $color-grey;
+	box-shadow: 0 0 0 100vmax $color-grey;
+	clip-path: inset(0 -100vmax);
 
 	.collage-wrapper {
 		display: grid;
