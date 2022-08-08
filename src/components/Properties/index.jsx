@@ -7,7 +7,7 @@ import PropertyCard from '../PropertyCard';
 import nextArrow from '../../assets/next-arrow.svg';
 import prevArrow from '../../assets/prev-arrow.svg';
 
-const Properties = () => {
+const PropertiesCarousel = () => {
 	const slider = useRef();
 
 	const settings = {
@@ -63,7 +63,7 @@ const Properties = () => {
 	};
 
 	return (
-		<div id="properties" className="properties">
+		<div id="properties" className="carousel">
 			<SectionHeader title="Properties" />
 
 			<Slider {...settings} ref={slider}>
@@ -75,7 +75,7 @@ const Properties = () => {
 	);
 };
 
-export default Properties;
+export default PropertiesCarousel;
 
 const NextArrow = ({ slider }) => (
 	<div style={{ cursor: 'pointer' }} onClick={() => slider.current.slickNext()}>
@@ -90,7 +90,7 @@ const PrevArrow = ({ slider }) => (
 
 const CardData = new Array(40).fill('').map((card, index) => ({
 	id: index,
-	tag: 'For sale',
+	listing: 'sale',
 	img: 'https://houseplanng.com/wp-content/uploads/wp-realestate-uploads/_property_gallery/2021/02/4-bedroom-bungalow-hp1-1-1024x652.jpg',
 	type: 'Office space',
 	title: 'Alison building apartment',

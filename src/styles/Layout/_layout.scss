@@ -1,8 +1,11 @@
+@use '../abstracts' as *;
+
 .layout {
 	width: 100%;
 
 	.children {
 		padding-top: 50px;
 		padding-bottom: 50px;
+		background-color: $color-grey;
 	}
 }

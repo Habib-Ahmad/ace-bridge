@@ -74,7 +74,7 @@ const links = [
 	},
 	{
 		name: 'Properties',
-		to: '',
+		to: 'properties',
 	},
 	{
 		name: 'Building materials',
@@ -87,9 +87,5 @@ const links = [
 	{
 		name: 'Contact',
 		to: 'contact-us',
-	},
-	{
-		name: 'Account',
-		to: '',
 	},
 ];

@@ -3,7 +3,7 @@ import shower from '../../assets/bathroom.svg';
 import car from '../../assets/parking.svg';
 
 const PropertyCard = ({
-	tag,
+	listing,
 	img,
 	title,
 	type,
@@ -15,7 +15,7 @@ const PropertyCard = ({
 }) => {
 	return (
 		<div className="property-card">
-			<p className="tag">{tag}</p>
+			<p className="tag">For {listing}</p>
 			<div className="image-wrapper">
 				<img src={img} alt="" />
 				<p className="type">{type}</p>
@@ -24,7 +24,9 @@ const PropertyCard = ({
 			<div className="body">
 				<div className="details">
 					<p className="title">{title}</p>
-					<p className="price">₦{price}</p>
+					<p className="price">
+						₦{price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+					</p>
 				</div>
 				<p className="location">{location}</p>
 
