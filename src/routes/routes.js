@@ -1,5 +1,6 @@
 import Home from '../pages/Home';
 import Properties from '../pages/Properties';
+import Property from '../pages/Properties/Property';
 import BuildingMaterials from '../pages/BuildingMaterials';
 import AboutUs from '../pages/AboutUs';
 import ContactUs from '../pages/ContactUs';
@@ -12,6 +13,10 @@ export const appRoutes = [
 	{
 		to: '/properties',
 		element: <Properties />,
+	},
+	{
+		to: '/properties/:id',
+		element: <Property />,
 	},
 	{
 		to: '/building-materials',

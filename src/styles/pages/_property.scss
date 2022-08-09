@@ -1,0 +1,176 @@
+@use '../abstracts' as *;
+
+.property {
+	.property-header {
+		@include space-between;
+		margin-bottom: 40px;
+		@include responsive(md) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.left {
+			@include space-between;
+			@include responsive(md) {
+				align-items: flex-start;
+				justify-content: flex-start;
+				margin-bottom: 40px;
+			}
+
+			img {
+				width: 30px;
+				cursor: pointer;
+				margin-right: 80px;
+				@include responsive(md) {
+					margin-right: 30px;
+					margin-top: 10px;
+				}
+			}
+
+			.title-wrapper {
+				.title {
+					font-size: 2rem;
+					font-weight: 700;
+					margin-bottom: 10px;
+				}
+
+				.location {
+					font-size: 1.2rem;
+					font-weight: 500;
+					color: $color-text-light;
+				}
+			}
+		}
+
+		.right {
+			margin-left: auto;
+			padding-left: 20px;
+			border-left: 2px solid $color-secondary;
+			@include responsive(md) {
+				margin-left: 0;
+				padding-left: 0;
+				border-left: none;
+			}
+
+			.listing {
+				font-size: 1.2rem;
+				font-weight: 700;
+			}
+
+			.price {
+				font-size: 2rem;
+				color: $color-primary;
+			}
+		}
+	}
+
+	.collage-wrapper {
+		background-color: $color-white;
+		padding: 40px;
+		border-radius: 5px;
+		display: grid;
+		place-items: center;
+		margin-bottom: 40px;
+		@include responsive(md) {
+			padding: 15px;
+		}
+
+		.kiWCaP {
+			width: 100%;
+		}
+	}
+
+	.details-wrapper {
+		background-color: $color-white;
+		padding: 60px 40px;
+		@include responsive(md) {
+			padding: 20px 10px;
+		}
+
+		.id-wrapper {
+			@include space-between;
+			padding-bottom: 40px;
+			border-bottom: 1px solid $color-secondary;
+
+			.id {
+				font-weight: 600;
+			}
+
+			.specs {
+				@include space-between;
+
+				.spec {
+					margin-left: 10px;
+
+					.icon-wrapper {
+						display: flex;
+						margin-bottom: 5px;
+
+						img {
+							margin-right: 10px;
+						}
+
+						p {
+							font-size: 1rem;
+							font-weight: 500;
+							color: $color-text-light;
+						}
+					}
+				}
+
+				p {
+					font-size: 0.75rem;
+					color: $color-text-light;
+				}
+			}
+		}
+
+		.description-wrapper {
+			@include space-between;
+			align-items: flex-start;
+			padding-top: 40px;
+			@include responsive(md) {
+				flex-direction: column;
+			}
+
+			.amenities-wrapper {
+				flex: 1;
+
+				.amenities {
+					display: flex;
+					align-items: center;
+					flex-wrap: wrap;
+
+					.amenity {
+						display: flex;
+						align-items: center;
+						justify-content: flex-start;
+						width: 50%;
+						margin-bottom: 20px;
+
+						img {
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+
+			.description {
+				flex: 1;
+				@include responsive(md) {
+					margin-top: 40px;
+				}
+
+				p {
+					line-height: 1.8rem;
+					font-weight: 500;
+				}
+			}
+		}
+		.btn-wrapper {
+			margin-top: 40px;
+			display: grid;
+			place-items: center;
+		}
+	}
+}

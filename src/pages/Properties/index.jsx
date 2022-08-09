@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@mui/material';
-import { GetFilteredData } from '../functions';
-import PropertyCard from '../components/PropertyCard';
-import Filters from '../components/Filters';
-import Pagination from '../components/Pagination';
+import { GetFilteredData } from '../../functions';
+import PropertyCard from '../../components/PropertyCard';
+import Filters from '../../components/Filters';
+import Pagination from '../../components/Pagination';
 
 const PAGE_RANGE = 5;
 const CARDS_PER_PAGE = 12;
@@ -82,15 +82,24 @@ const Properties = () => {
 
 export default Properties;
 
-const data = new Array(120).fill('').map((card, index) => {
+const data = new Array(36).fill('').map((card, index) => {
 	const num = Math.floor(Math.random() * 10);
 	return {
-		id: index,
+		id: Math.floor(Math.random() * 10000),
 		listing: num > 5 ? 'rent' : 'sale',
 		img: 'https://houseplanng.com/wp-content/uploads/wp-realestate-uploads/_property_gallery/2021/02/4-bedroom-bungalow-hp1-1-1024x652.jpg',
 		type: num % 2 === 0 ? 'Residential' : 'Office space',
 		title: 'Alison building apartment',
 		price: String(Math.floor(Math.random() * 100000000)),
+		amenities: [
+			'24 Hours Electricity',
+			'Backp Generator',
+			'Bore Hole',
+			'CCTV Cameras',
+			'Intercom',
+		],
+		description:
+			'This magnificently designed tower offers views that redefine international luxury standards while challenging the underlying conventions of residential high-rise architecture. Located in the exciting high-demand upper side of Westlands, Nairobi a walking distance of numerous social amenities such as 5-star hotels, shopping malls, recreational centers, schools, and many more, makes Elite Residence the ideal home for young families. This Urban inspired layout is truly remarkable inside and out. An elegant modern concept featuring unparalleled craftsmanship and exceptional amenities. Elite towers feature a synthesis of artificial and natural elements all together creating a high quality of life and a sense of belonging and pride among residents. The balcony and custom curtain windows provide plenty of natural lighting expansive and gorgeous views of the city skyline from the core of your home.',
 		location: 'Asokoro, Abuja',
 		bathrooms: '3',
 		bedrooms: '3',

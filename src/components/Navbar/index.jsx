@@ -31,7 +31,11 @@ const Navbar = ({ darkMode }) => {
 			</div>
 			<nav className={`${darkMode ? '' : 'dark-links'}`}>
 				{links.map((link) => (
-					<Button variant="text" key={link.name} href={link.to}>
+					<Button
+						variant="text"
+						key={link.name}
+						onClick={() => navigate(link.to)}
+					>
 						{link.name}
 					</Button>
 				))}
@@ -52,7 +56,7 @@ const Navbar = ({ darkMode }) => {
 							<Button
 								variant="text"
 								key={link.name}
-								href={link.to}
+								onClick={() => navigate(link.to)}
 								disableRipple={false}
 							>
 								{link.name}
@@ -74,18 +78,18 @@ const links = [
 	},
 	{
 		name: 'Properties',
-		to: 'properties',
+		to: '/properties',
 	},
 	{
 		name: 'Building materials',
-		to: 'building-materials',
+		to: '/building-materials',
 	},
 	{
 		name: 'About us',
-		to: 'about',
+		to: '/about',
 	},
 	{
 		name: 'Contact',
-		to: 'contact-us',
+		to: '/contact-us',
 	},
 ];

@@ -1,10 +1,14 @@
+import { useNavigate } from 'react-router';
 import bed from '../../assets/bedroom.svg';
 import shower from '../../assets/bathroom.svg';
 import car from '../../assets/parking.svg';
 
 const PropertyCard = ({
+	id,
 	listing,
 	img,
+	amenities,
+	description,
 	title,
 	type,
 	price,
@@ -13,8 +17,26 @@ const PropertyCard = ({
 	bedrooms,
 	parking,
 }) => {
+	const navigate = useNavigate();
+	const props = {
+		id,
+		listing,
+		img,
+		amenities,
+		description,
+		title,
+		type,
+		price,
+		location,
+		bathrooms,
+		bedrooms,
+		parking,
+	};
 	return (
-		<div className="property-card">
+		<div
+			className="property-card"
+			onClick={() => navigate(String(id), { state: props })}
+		>
 			<p className="tag">For {listing}</p>
 			<div className="image-wrapper">
 				<img src={img} alt="" />
