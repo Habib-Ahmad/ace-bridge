@@ -5,12 +5,15 @@ import { theme } from './themes/theme';
 import { BrowserRouter } from 'react-router-dom';
 import './styles/main.scss';
 import App from './App';
+import ScrollToTop from './components/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<ThemeProvider theme={theme}>
 		<BrowserRouter>
-			<App />
+			<ScrollToTop>
+				<App />
+			</ScrollToTop>
 		</BrowserRouter>
 	</ThemeProvider>
 );
