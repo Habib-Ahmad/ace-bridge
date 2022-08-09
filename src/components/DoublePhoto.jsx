@@ -1,5 +1,3 @@
-import React from 'react';
-
 const DoublePhoto = () => {
 	return (
 		<div className="img-wrapper">

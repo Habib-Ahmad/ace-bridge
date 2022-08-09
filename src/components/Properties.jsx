@@ -2,10 +2,10 @@ import { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import SectionHeader from '../SectionHeader';
-import PropertyCard from '../PropertyCard';
-import nextArrow from '../../assets/next-arrow.svg';
-import prevArrow from '../../assets/prev-arrow.svg';
+import SectionHeader from './SectionHeader';
+import PropertyCard from './PropertyCard';
+import nextArrow from '../assets/next-arrow.svg';
+import prevArrow from '../assets/prev-arrow.svg';
 
 const PropertiesCarousel = () => {
 	const slider = useRef();

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
-import bed from '../../assets/bedroom.svg';
-import shower from '../../assets/bathroom.svg';
-import car from '../../assets/parking.svg';
+import bed from '../assets/bedroom.svg';
+import shower from '../assets/bathroom.svg';
+import car from '../assets/parking.svg';
 
 const PropertyCard = ({
 	id,

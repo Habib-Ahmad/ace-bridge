@@ -1,4 +1,4 @@
-import arrow from '../../assets/arrow.svg';
+import arrow from '../assets/arrow.svg';
 
 const SectionHeader = ({ title }) => {
 	return (

@@ -1,4 +1,4 @@
-import quote from '../../assets/quote.svg';
+import quote from '../assets/quote.svg';
 
 const TestimonialCard = ({ text, name }) => {
 	return (

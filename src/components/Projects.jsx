@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { Button } from '@mui/material';
 import { ReactPhotoCollage } from 'react-photo-collage';
-import SectionHeader from '../SectionHeader';
+import SectionHeader from './SectionHeader';
 
 const Projects = () => {
 	const navigate = useNavigate();

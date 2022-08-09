@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
-import Navbar from '../Navbar';
-import underline from '../../assets/header/underline.svg';
+import Navbar from './Navbar';
+import underline from '../assets/header/underline.svg';
 
 const Header = () => {
 	return (

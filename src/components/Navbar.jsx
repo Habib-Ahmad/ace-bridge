@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Button, IconButton, SwipeableDrawer } from '@mui/material';
 import { useNavigate } from 'react-router';
-import logoWhite from '../../assets/logo-white.svg';
-import logo from '../../assets/logo.svg';
-import menuWhite from '../../assets/header/menu-white.svg';
-import menu from '../../assets/header/menu.svg';
+import logoWhite from '../assets/logo-white.svg';
+import logo from '../assets/logo.svg';
+import menuWhite from '../assets/header/menu-white.svg';
+import menu from '../assets/header/menu.svg';
 
 const Navbar = ({ darkMode }) => {
 	const [displayDrawer, setDisplayDrawer] = useState(false);

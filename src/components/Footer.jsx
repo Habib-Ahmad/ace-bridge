@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router';
 import { Button, IconButton } from '@mui/material';
-import logo from '../../assets/logo-white.svg';
-import linkedin from '../../assets/footer/linkedin.svg';
-import messenger from '../../assets/footer/messenger.svg';
-import twitter from '../../assets/footer/twitter.svg';
-import twoo from '../../assets/footer/twoo.svg';
+import logo from '../assets/logo-white.svg';
+import linkedin from '../assets/footer/linkedin.svg';
+import messenger from '../assets/footer/messenger.svg';
+import twitter from '../assets/footer/twitter.svg';
+import twoo from '../assets/footer/twoo.svg';
 
 const Footer = () => {
 	const navigate = useNavigate();
