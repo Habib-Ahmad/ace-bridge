@@ -7,7 +7,7 @@
 	padding: 40px;
 
 	.row {
-		@include space-between;
+		@include flex;
 		margin-bottom: 20px;
 		@include responsive(md) {
 			flex-direction: column;

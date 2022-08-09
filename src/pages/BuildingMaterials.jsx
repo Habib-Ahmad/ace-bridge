@@ -40,7 +40,7 @@ const BuildingMaterials = () => {
 		.map((item, index) => index + 1);
 
 	return (
-		<div className="properties content-wrapper">
+		<div className="properties">
 			<h1>Building Materials</h1>
 
 			<Button

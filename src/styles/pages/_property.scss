@@ -2,7 +2,7 @@
 
 .property {
 	.property-header {
-		@include space-between;
+		@include flex;
 		margin-bottom: 40px;
 		@include responsive(md) {
 			flex-direction: column;
@@ -10,7 +10,7 @@
 		}
 
 		.left {
-			@include space-between;
+			@include flex;
 			@include responsive(md) {
 				align-items: flex-start;
 				justify-content: flex-start;
@@ -88,7 +88,7 @@
 		}
 
 		.id-wrapper {
-			@include space-between;
+			@include flex;
 			padding-bottom: 40px;
 			border-bottom: 1px solid $color-secondary;
 
@@ -97,7 +97,7 @@
 			}
 
 			.specs {
-				@include space-between;
+				@include flex;
 
 				.spec {
 					margin-left: 10px;
@@ -126,7 +126,7 @@
 		}
 
 		.description-wrapper {
-			@include space-between;
+			@include flex;
 			align-items: flex-start;
 			padding-top: 40px;
 			@include responsive(md) {

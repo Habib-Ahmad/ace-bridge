@@ -35,7 +35,7 @@ const PropertyCard = ({
 	return (
 		<div
 			className="property-card"
-			onClick={() => navigate(String(id), { state: props })}
+			onClick={() => navigate(`/properties/${id}`, { state: props })}
 		>
 			<p className="tag">For {listing}</p>
 			<div className="image-wrapper">

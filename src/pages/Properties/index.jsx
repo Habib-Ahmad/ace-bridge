@@ -43,7 +43,7 @@ const Properties = () => {
 		.map((item, index) => index + 1);
 
 	return (
-		<div className="properties content-wrapper">
+		<div className="properties">
 			<h1>Properties </h1>
 
 			<Button

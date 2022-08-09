@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router';
 import { Button } from '@mui/material';
 import { ReactPhotoCollage } from 'react-photo-collage';
 import SectionHeader from '../SectionHeader';
 
 const Projects = () => {
+	const navigate = useNavigate();
+
 	const setting = {
 		width: '80vw',
 		height: ['20vh', '20vh', '20vh'],
@@ -44,7 +47,11 @@ const Projects = () => {
 			</div>
 
 			<div className="button-wrapper">
-				<Button variant="outlined" size="large">
+				<Button
+					variant="outlined"
+					size="large"
+					onClick={() => navigate('/properties')}
+				>
 					View Projects
 				</Button>
 			</div>

@@ -2,7 +2,7 @@ import DoublePhoto from '../components/DoublePhoto';
 
 const AboutUs = () => {
 	return (
-		<div className="about-us content-wrapper">
+		<div className="about-us">
 			<div className="text-wrapper">
 				<h1>About Us</h1>
 				<p>

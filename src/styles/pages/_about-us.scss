@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .about-us {
-	@include space-between;
+	@include flex;
 	justify-content: flex-start;
 
 	@include responsive(md) {

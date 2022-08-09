@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 .section-header {
-	@include space-between;
+	@include flex;
 	margin-bottom: 50px;
 
 	img {

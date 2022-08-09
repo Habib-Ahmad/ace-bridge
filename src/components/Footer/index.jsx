@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import { Button, IconButton } from '@mui/material';
 import logo from '../../assets/logo-white.svg';
 import linkedin from '../../assets/footer/linkedin.svg';
@@ -6,16 +7,22 @@ import twitter from '../../assets/footer/twitter.svg';
 import twoo from '../../assets/footer/twoo.svg';
 
 const Footer = () => {
+	const navigate = useNavigate();
+
 	return (
 		<footer className="footer">
 			<div className="footer-content">
-				<img src={logo} alt="Ace bridge" />
+				<img src={logo} alt="Ace bridge" onClick={() => navigate('/')} />
 
 				<div>
-					<h4>Important links</h4>
+					<h4>Overview</h4>
 					<div className="links-wrapper">
 						{links.map((link) => (
-							<Button key={link.name} variant="text" href={link.to}>
+							<Button
+								key={link.name}
+								variant="text"
+								onClick={() => navigate(link.to)}
+							>
 								{link.name}
 							</Button>
 						))}
@@ -26,7 +33,7 @@ const Footer = () => {
 					<h4>Social Media</h4>
 					<div className="social-links-wrapper">
 						{socialMediaLinks.map((link) => (
-							<IconButton key={link.name} href={link.to}>
+							<IconButton key={link.name} onClick={() => navigate(link.to)}>
 								<img src={link.icon} alt={link.name} />
 							</IconButton>
 						))}
@@ -46,23 +53,19 @@ export default Footer;
 const links = [
 	{
 		name: 'Properties',
-		to: '',
+		to: '/properties',
 	},
 	{
 		name: 'Building materials',
-		to: '',
+		to: '/building-materials',
 	},
 	{
 		name: 'About us',
-		to: '',
+		to: '/about',
 	},
 	{
 		name: 'Contact',
-		to: '',
-	},
-	{
-		name: 'Account',
-		to: '',
+		to: '/contact-us',
 	},
 ];
 

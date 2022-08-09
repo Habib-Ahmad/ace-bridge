@@ -59,7 +59,7 @@
 		padding: 15px 10px;
 
 		.details {
-			@include space-between;
+			@include flex;
 			margin-bottom: 10px;
 
 			.title {

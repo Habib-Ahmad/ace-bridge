@@ -1,4 +1,4 @@
-@mixin space-between {
+@mixin flex {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -7,31 +7,26 @@
 @mixin responsive($breakPoint) {
 	@if ($breakPoint == xs) {
 		@media (max-width: 0px) {
-			// 600px
 			@content;
 		}
 	}
 	@if ($breakPoint == sm) {
 		@media (max-width: 600px) {
-			// 600px
 			@content;
 		}
 	}
 	@if ($breakPoint == md) {
 		@media (max-width: 800px) {
-			// 600px
 			@content;
 		}
 	}
 	@if ($breakPoint == lg) {
 		@media (max-width: 1200px) {
-			// 600px
 			@content;
 		}
 	}
 	@if ($breakPoint == xl) {
 		@media (max-width: 1563px) {
-			// 600px
 			@content;
 		}
 	}

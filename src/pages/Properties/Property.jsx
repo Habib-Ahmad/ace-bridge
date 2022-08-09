@@ -55,7 +55,7 @@ const Property = () => {
 	};
 
 	return (
-		<div className="property content-wrapper">
+		<div className="property">
 			<div className="property-header">
 				<div className="left">
 					<img src={back} alt="back" onClick={() => navigate(-1)} />

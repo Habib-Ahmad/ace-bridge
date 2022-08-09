@@ -26,7 +26,6 @@ export const GetFilteredData = (
 	}
 
 	if (key) {
-		console.log(key);
 		array = array.filter(
 			(item) =>
 				item.listing.toLowerCase().includes(key) ||

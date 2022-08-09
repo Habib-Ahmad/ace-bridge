@@ -20,7 +20,7 @@
 	}
 
 	.filters {
-		@include space-between;
+		@include flex;
 		justify-content: flex-end;
 		margin-bottom: 40px;
 

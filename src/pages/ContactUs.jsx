@@ -3,7 +3,7 @@ import DoublePhoto from '../components/DoublePhoto';
 
 const ContactUs = () => {
 	return (
-		<div className="contact-us content-wrapper">
+		<div className="contact-us">
 			<div className="about-us">
 				<div className="text-wrapper">
 					<h1>Contact Us</h1>

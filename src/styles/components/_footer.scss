@@ -3,14 +3,14 @@
 .footer {
 	background-color: $color-primary;
 	color: $color-white;
-	padding: 50px 100px 40px;
+	padding: 50px 100px 20px;
 	@include responsive(sm) {
 		padding: 50px 5vw 40px;
 	}
 
 	.footer-content {
-		@include space-between;
-		margin-bottom: 40px;
+		@include flex;
+		align-items: flex-start;
 
 		@include responsive(sm) {
 			flex-direction: column;
@@ -24,9 +24,8 @@
 		}
 
 		img {
-			display: flex;
-			align-self: center;
 			width: 200px;
+			cursor: pointer;
 		}
 
 		h4 {
@@ -64,6 +63,6 @@
 	.copyright {
 		border-top: 2px solid #d6e0eb1f;
 		text-align: center;
-		padding-top: 40px;
+		padding-top: 20px;
 	}
 }
