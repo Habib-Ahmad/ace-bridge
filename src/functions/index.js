@@ -3,10 +3,10 @@ export const GetFilteredData = (
 	page,
 	items
 ) => {
-	listing = listing.toLowerCase();
-	location = location.toLowerCase();
-	type = type.toLowerCase();
-	key = key.toLowerCase();
+	listing = listing?.toLowerCase();
+	location = location?.toLowerCase();
+	type = type?.toLowerCase();
+	key = key?.toLowerCase();
 	let array = [...items];
 
 	if (listing) {
@@ -26,13 +26,15 @@ export const GetFilteredData = (
 	}
 
 	if (key) {
+		console.log(key);
 		array = array.filter(
 			(item) =>
 				item.listing.toLowerCase().includes(key) ||
 				item.location.toLowerCase().includes(key) ||
 				item.type.toLowerCase().includes(key) ||
 				item.title.toLowerCase().includes(key) ||
-				item.price.toLowerCase().includes(key)
+				item.price.includes(key) ||
+				item.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',').includes(key)
 		);
 	}
 

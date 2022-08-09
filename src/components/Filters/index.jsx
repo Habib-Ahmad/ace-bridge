@@ -8,63 +8,75 @@ import {
 	TextField,
 } from '@mui/material';
 
-const Filters = ({ filters, handleChange, displaySearch }) => {
+const Filters = ({
+	filters: { listing, location, type, key },
+	handleChange,
+	displaySearch,
+}) => {
 	return (
 		<div className={`filters ${displaySearch ? 'display' : ''}`}>
-			<FormControl fullWidth size="small">
-				<InputLabel>Listing</InputLabel>
-				<Select
-					label="Listing"
-					name="listing"
-					value={filters.listing}
-					onChange={handleChange}
-				>
-					<MenuItem value="sale">For sale</MenuItem>
-					<MenuItem value="rent">For rent</MenuItem>
-				</Select>
-			</FormControl>
+			{typeof listing === 'string' && (
+				<FormControl fullWidth size="small">
+					<InputLabel>Listing</InputLabel>
+					<Select
+						label="Listing"
+						name="listing"
+						value={listing}
+						onChange={handleChange}
+					>
+						<MenuItem value="sale">For sale</MenuItem>
+						<MenuItem value="rent">For rent</MenuItem>
+					</Select>
+				</FormControl>
+			)}
 
-			<FormControl fullWidth size="small">
-				<InputLabel>Location</InputLabel>
-				<Select
-					label="Location"
-					name="location"
-					value={filters.location}
-					onChange={handleChange}
-				>
-					<MenuItem value="asokoro">Asokoro</MenuItem>
-				</Select>
-			</FormControl>
+			{typeof location === 'string' && (
+				<FormControl fullWidth size="small">
+					<InputLabel>Location</InputLabel>
+					<Select
+						label="Location"
+						name="location"
+						value={location}
+						onChange={handleChange}
+					>
+						<MenuItem value="asokoro">Asokoro</MenuItem>
+					</Select>
+				</FormControl>
+			)}
 
-			<FormControl fullWidth size="small">
-				<InputLabel>Property type</InputLabel>
-				<Select
-					label="Property type"
-					name="type"
-					value={filters.type}
-					onChange={handleChange}
-				>
-					<MenuItem value="office">Office space</MenuItem>
-					<MenuItem value="residential">Residential</MenuItem>
-				</Select>
-			</FormControl>
+			{typeof type === 'string' && (
+				<FormControl fullWidth size="small">
+					<InputLabel>Property type</InputLabel>
+					<Select
+						label="Property type"
+						name="type"
+						value={type}
+						onChange={handleChange}
+					>
+						<MenuItem value="office">Office space</MenuItem>
+						<MenuItem value="residential">Residential</MenuItem>
+					</Select>
+				</FormControl>
+			)}
 
-			<TextField
-				variant="outlined"
-				size="small"
-				name="key"
-				fullWidth
-				label="Key word"
-				value={filters.key}
-				onChange={handleChange}
-				InputProps={{
-					endAdornment: (
-						<InputAdornment position="end">
-							<Search />
-						</InputAdornment>
-					),
-				}}
-			/>
+			{typeof key === 'string' && (
+				<TextField
+					variant="outlined"
+					size="small"
+					name="key"
+					fullWidth
+					label="Search"
+					value={key}
+					onChange={handleChange}
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position="end">
+								<Search />
+							</InputAdornment>
+						),
+					}}
+				/>
+			)}
 		</div>
 	);
 };

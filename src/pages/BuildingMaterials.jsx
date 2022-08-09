@@ -1,36 +1,33 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@mui/material';
-import { GetFilteredData } from '../functions';
-import PropertyCard from '../components/PropertyCard';
 import Filters from '../components/Filters';
 import Pagination from '../components/Pagination';
+import PropertyCard from '../components/PropertyCard';
+import { GetFilteredData } from '../functions';
 
 const PAGE_RANGE = 5;
 const CARDS_PER_PAGE = 12;
 
-const Properties = () => {
+const BuildingMaterials = () => {
 	const [propertyList, setPropertyList] = useState([]);
 	const [page, setPage] = useState(1);
 	const [displaySearch, setDisplaySearch] = useState(false);
 	const [minPageLimit, setMinPageLimit] = useState(1);
 	const [maxPageLimit, setMaxPageLimit] = useState(PAGE_RANGE);
 	const [filters, setFilters] = useState({
-		listing: '',
-		location: '',
-		type: '',
 		key: '',
 	});
+
+	const handleChange = (e) => {
+		setFilters((prev) => ({
+			...prev,
+			[e.target.name]: e.target.value,
+		}));
+	};
 
 	useEffect(() => {
 		setPropertyList(data);
 	}, []);
-
-	const handleChange = (e) => {
-		setFilters({
-			...filters,
-			[e.target.name]: e.target.value,
-		});
-	};
 
 	const properties = useMemo(
 		() => GetFilteredData(filters, page, propertyList),
@@ -44,7 +41,7 @@ const Properties = () => {
 
 	return (
 		<div className="properties content-wrapper">
-			<h1>Properties </h1>
+			<h1>Building Materials</h1>
 
 			<Button
 				className="advanced-search"
@@ -58,7 +55,6 @@ const Properties = () => {
 				handleChange={handleChange}
 				displaySearch={displaySearch}
 			/>
-
 			<div className="list">
 				{properties.map((property) => (
 					<PropertyCard key={property.id} {...property} />
@@ -80,7 +76,7 @@ const Properties = () => {
 	);
 };
 
-export default Properties;
+export default BuildingMaterials;
 
 const data = new Array(120).fill('').map((card, index) => {
 	const num = Math.floor(Math.random() * 10);

@@ -21,10 +21,12 @@
 
 	.filters {
 		@include space-between;
+		justify-content: flex-end;
 		margin-bottom: 40px;
 
 		& > .MuiFormControl-root {
 			margin-right: 10px;
+			max-width: 300px;
 		}
 
 		@include responsive(md) {
