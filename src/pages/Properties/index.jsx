@@ -82,7 +82,7 @@ const Properties = () => {
 
 export default Properties;
 
-const data = new Array(36).fill('').map((card, index) => {
+const data = new Array(70).fill('').map((card, index) => {
 	const num = Math.floor(Math.random() * 10);
 	return {
 		id: Math.floor(Math.random() * 10000),
