@@ -34,7 +34,7 @@
 			height: 0;
 			opacity: 0;
 			visibility: hidden;
-			transition: all 200ms linear;
+			transition: height 400ms;
 
 			& > .MuiFormControl-root {
 				margin-bottom: 10px;
@@ -43,7 +43,7 @@
 
 			&.display {
 				opacity: 1;
-				height: 200px;
+				height: max-content;
 				visibility: visible;
 			}
 		}
@@ -67,6 +67,33 @@
 		@include responsive(md) {
 			grid-template-columns: repeat(1, 100%);
 			grid-template-rows: repeat(12, 500px);
+		}
+
+		.property-card {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.materials-list {
+		display: grid;
+		place-items: center;
+		grid-template-columns: repeat(4, 25%);
+		grid-template-rows: repeat(1, 400px);
+
+		@include responsive(xl) {
+			grid-template-columns: repeat(3, 33%);
+			grid-template-rows: repeat(2, 400px);
+		}
+
+		@include responsive(lg) {
+			grid-template-columns: repeat(2, 50%);
+			grid-template-rows: repeat(2, 400px);
+		}
+
+		@include responsive(md) {
+			grid-template-columns: repeat(1, 100%);
+			grid-template-rows: repeat(4, 400px);
 		}
 
 		.property-card {

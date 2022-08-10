@@ -51,7 +51,11 @@ const Navbar = ({ darkMode }) => {
 					onClose={toggleDrawer(false)}
 					onOpen={toggleDrawer(true)}
 				>
-					<nav className="mobile-nav">
+					<nav
+						className="mobile-nav"
+						onClick={toggleDrawer(false)}
+						onKeyDown={toggleDrawer(false)}
+					>
 						{links.map((link) => (
 							<Button
 								variant="text"

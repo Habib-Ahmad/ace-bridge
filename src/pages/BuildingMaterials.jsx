@@ -1,19 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Button } from '@mui/material';
 import Filters from '../components/Filters';
-import Pagination from '../components/Pagination';
-import PropertyCard from '../components/PropertyCard';
+import MaterialCard from '../components/MaterialCard';
 import { GetFilteredData } from '../functions';
-
-const PAGE_RANGE = 5;
-const CARDS_PER_PAGE = 12;
 
 const BuildingMaterials = () => {
 	const [propertyList, setPropertyList] = useState([]);
-	const [page, setPage] = useState(1);
-	const [displaySearch, setDisplaySearch] = useState(false);
-	const [minPageLimit, setMinPageLimit] = useState(1);
-	const [maxPageLimit, setMaxPageLimit] = useState(PAGE_RANGE);
 	const [filters, setFilters] = useState({
 		key: '',
 	});
@@ -30,66 +21,58 @@ const BuildingMaterials = () => {
 	}, []);
 
 	const properties = useMemo(
-		() => GetFilteredData(filters, page, propertyList),
-		[filters, page, propertyList]
+		() => GetFilteredData(filters, 1, propertyList),
+		[filters, propertyList]
 	);
-
-	const numOfPages = Math.ceil(propertyList.length / CARDS_PER_PAGE);
-	const pageButtons = new Array(numOfPages)
-		.fill('')
-		.map((item, index) => index + 1);
 
 	return (
 		<div className="properties">
 			<h1>Building Materials</h1>
 
-			<Button
-				className="advanced-search"
-				onClick={() => setDisplaySearch((prevState) => !prevState)}
-				variant="text"
-			>
-				Advanced search
-			</Button>
 			<Filters
 				filters={filters}
 				handleChange={handleChange}
-				displaySearch={displaySearch}
+				displaySearch={true}
 			/>
-			<div className="list">
-				{properties.map((property) => (
-					<PropertyCard key={property.id} {...property} />
+
+			<div className="materials-list">
+				{properties.map((material) => (
+					<MaterialCard key={material.id} {...material} />
 				))}
 			</div>
-
-			<Pagination
-				page={page}
-				numOfPages={numOfPages}
-				pageButtons={pageButtons}
-				minPageLimit={minPageLimit}
-				maxPageLimit={maxPageLimit}
-				PAGE_RANGE={PAGE_RANGE}
-				setPage={setPage}
-				setMinPageLimit={setMinPageLimit}
-				setMaxPageLimit={setMaxPageLimit}
-			/>
 		</div>
 	);
 };
 
 export default BuildingMaterials;
 
-const data = new Array(120).fill('').map((card, index) => {
-	const num = Math.floor(Math.random() * 10);
-	return {
-		id: index,
-		listing: num > 5 ? 'rent' : 'sale',
-		img: 'https://houseplanng.com/wp-content/uploads/wp-realestate-uploads/_property_gallery/2021/02/4-bedroom-bungalow-hp1-1-1024x652.jpg',
-		type: num % 2 === 0 ? 'Residential' : 'Office space',
-		title: 'Alison building apartment',
-		price: String(Math.floor(Math.random() * 100000000)),
-		location: 'Asokoro, Abuja',
-		bathrooms: '3',
-		bedrooms: '3',
-		parking: '3',
-	};
-});
+const data = [
+	{
+		id: '1',
+		img: 'https://nimvo.com/wp-content/uploads/2019/05/Stone-Dust.jpg',
+		title: 'Stone dust',
+		pricePerUnit: '4000',
+		unit: 'bag',
+	},
+	{
+		id: '2',
+		img: 'https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2021/07/1625980458926blob.png?fit=711%2C403&ssl=1',
+		title: 'Cement',
+		pricePerUnit: '6000',
+		unit: 'bag',
+	},
+	{
+		id: '3',
+		img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bluemetal_coarse_granite_gravel_texture.jpg/1200px-Bluemetal_coarse_granite_gravel_texture.jpg',
+		title: 'Gravel',
+		pricePerUnit: '3500',
+		unit: 'bag',
+	},
+	{
+		id: '4',
+		img: 'https://cdn-media.buildersmart.in/media/blog/bgsand1.jpg',
+		title: 'Sand',
+		pricePerUnit: '25000',
+		unit: 'bag',
+	},
+];
