@@ -1,6 +1,6 @@
 const DoublePhoto = () => {
 	return (
-		<div className="img-wrapper">
+		<div className="double-photo">
 			<img
 				src="https://i.pinimg.com/originals/77/7a/6f/777a6fb95e0bcf8d28c63bf4029fa734.jpg"
 				alt=""

@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from 'react-router';
 import { ReactPhotoCollage } from 'react-photo-collage';
+import { Button } from '@mui/material';
 import back from '../../assets/back-btn.svg';
 import amenity from '../../assets/amenity.svg';
 import bed from '../../assets/bedroom.svg';
 import shower from '../../assets/bathroom.svg';
 import car from '../../assets/parking.svg';
-import { Button } from '@mui/material';
 
 const Property = () => {
 	const {
@@ -73,11 +73,9 @@ const Property = () => {
 				</div>
 			</div>
 
-			<div className="images">
-				<h3>Photos</h3>
-				<div className="collage-wrapper">
-					<ReactPhotoCollage {...setting} />
-				</div>
+			<h3>Photos</h3>
+			<div className="collage-wrapper">
+				<ReactPhotoCollage {...setting} />
 			</div>
 
 			<h3>Property details</h3>

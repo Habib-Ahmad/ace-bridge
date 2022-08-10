@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router';
 
-const MaterialCard = ({ id, img, title, pricePerUnit, unit }) => {
+const MaterialCard = ({ id, img, title, price, unit }) => {
 	const navigate = useNavigate();
-	const props = { id, img, title, pricePerUnit, unit };
-	pricePerUnit = pricePerUnit.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	const props = { id, img, title, price, unit };
+	price = price.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 	return (
 		<div
@@ -17,7 +17,7 @@ const MaterialCard = ({ id, img, title, pricePerUnit, unit }) => {
 			<div className="details">
 				<p className="title">{title}</p>
 				<div className="price-wrapper">
-					<p className="price">₦{pricePerUnit}</p>
+					<p className="price">₦{price}</p>
 					<p className="unit">per {unit}</p>
 				</div>
 			</div>
