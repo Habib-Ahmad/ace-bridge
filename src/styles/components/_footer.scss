@@ -11,6 +11,7 @@
 	.footer-content {
 		@include flex;
 		align-items: flex-start;
+		padding-bottom: 20px;
 
 		@include responsive(sm) {
 			flex-direction: column;
@@ -35,13 +36,9 @@
 		}
 
 		.links-wrapper {
-			display: grid;
-			grid-template-columns: repeat(2, 70%);
-			grid-template-rows: repeat(3, 2rem);
-			white-space: nowrap;
-			@include responsive(sm) {
-				grid-template-columns: repeat(2, 50%);
-			}
+			@include flex;
+			flex-direction: column;
+			align-items: flex-start;
 
 			button,
 			a {

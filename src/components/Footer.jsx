@@ -56,10 +56,6 @@ const links = [
 		to: '/properties',
 	},
 	{
-		name: 'Building materials',
-		to: '/building-materials',
-	},
-	{
 		name: 'About us',
 		to: '/about',
 	},
