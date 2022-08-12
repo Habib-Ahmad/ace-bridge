@@ -9,7 +9,7 @@ const Header = () => {
 
 			<div className="heading-wrapper">
 				<h1>
-					Creating an urban lifestyle <br /> built to last...
+					Creating urban lifestyle <br /> build to last...
 				</h1>
 				<img src={underline} alt="" />
 				<p>The best place to purchase properties and buidling materials</p>
