@@ -1,8 +1,8 @@
-import Home from '../pages/Home';
-import Properties from '../pages/Properties';
-import Property from '../pages/Properties/Property';
-import AboutUs from '../pages/AboutUs';
-import ContactUs from '../pages/ContactUs';
+import Home from '../website/pages/Home';
+import Properties from '../website/pages/Properties';
+import Property from '../website/pages/Properties/Property';
+import AboutUs from '../website/pages/AboutUs';
+import ContactUs from '../website/pages/ContactUs';
 
 export const appRoutes = [
 	{
