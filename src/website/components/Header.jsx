@@ -13,7 +13,7 @@ const Header = () => {
 				</h1>
 				<img src={underline} alt="" />
 				<p>The best place to purchase properties and buidling materials</p>
-				<Button variant="outlined" href="#properties">
+				<Button variant="outlined" href="#projects">
 					Get Started
 				</Button>
 			</div>

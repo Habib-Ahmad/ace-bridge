@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
-.property {
-	.property-header {
+.project {
+	.project-header {
 		@include flex;
 		margin-bottom: 40px;
 		@include responsive(md) {

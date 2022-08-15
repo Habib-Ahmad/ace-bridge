@@ -7,7 +7,7 @@ import bed from '../../assets/bedroom.svg';
 import shower from '../../assets/bathroom.svg';
 import car from '../../assets/parking.svg';
 
-const Property = () => {
+const Project = () => {
 	const {
 		id,
 		listing,
@@ -55,8 +55,8 @@ const Property = () => {
 	};
 
 	return (
-		<div className="property">
-			<div className="property-header">
+		<div className="project">
+			<div className="project-header">
 				<div className="left">
 					<img src={back} alt="back" onClick={() => navigate(-1)} />
 					<div className="title-wrapper">
@@ -78,10 +78,10 @@ const Property = () => {
 				<ReactPhotoCollage {...setting} />
 			</div>
 
-			<h3>Property details</h3>
+			<h3>Project details</h3>
 			<div className="details-wrapper">
 				<div className="id-wrapper">
-					<p className="id">Property ID: {id}</p>
+					<p className="id">Project ID: {id}</p>
 					<div className="specs">
 						<div className="spec">
 							<div className="icon-wrapper">
@@ -136,4 +136,4 @@ const Property = () => {
 	);
 };
 
-export default Property;
+export default Project;

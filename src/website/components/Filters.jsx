@@ -46,9 +46,9 @@ const Filters = ({
 
 			{typeof type === 'string' && (
 				<FormControl fullWidth size="small">
-					<InputLabel>Property type</InputLabel>
+					<InputLabel>Project type</InputLabel>
 					<Select
-						label="Property type"
+						label="Project type"
 						name="type"
 						value={type}
 						onChange={handleChange}

@@ -1,15 +1,15 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@mui/material';
 import { GetFilteredData } from '../../functions';
-import PropertyCard from '../../components/PropertyCard';
+import ProjectCard from '../../components/ProjectCard';
 import Filters from '../../components/Filters';
 import Pagination from '../../components/Pagination';
 
 const PAGE_RANGE = 5;
 const CARDS_PER_PAGE = 12;
 
-const Properties = () => {
-	const [propertyList, setPropertyList] = useState([]);
+const Projects = () => {
+	const [projectList, setProjectList] = useState([]);
 	const [page, setPage] = useState(1);
 	const [displaySearch, setDisplaySearch] = useState(false);
 	const [minPageLimit, setMinPageLimit] = useState(1);
@@ -22,7 +22,7 @@ const Properties = () => {
 	});
 
 	useEffect(() => {
-		setPropertyList(data);
+		setProjectList(data);
 	}, []);
 
 	const handleChange = (e) => {
@@ -32,19 +32,19 @@ const Properties = () => {
 		});
 	};
 
-	const properties = useMemo(
-		() => GetFilteredData(filters, page, propertyList),
-		[filters, page, propertyList]
+	const projects = useMemo(
+		() => GetFilteredData(filters, page, projectList),
+		[filters, page, projectList]
 	);
 
-	const numOfPages = Math.ceil(propertyList.length / CARDS_PER_PAGE);
+	const numOfPages = Math.ceil(projectList.length / CARDS_PER_PAGE);
 	const pageButtons = new Array(numOfPages)
 		.fill('')
 		.map((item, index) => index + 1);
 
 	return (
-		<div className="properties">
-			<h1>Properties </h1>
+		<div className="projects">
+			<h1>Projects</h1>
 
 			<Button
 				className="advanced-search"
@@ -60,8 +60,8 @@ const Properties = () => {
 			/>
 
 			<div className="list">
-				{properties.map((property) => (
-					<PropertyCard key={property.id} {...property} />
+				{projects.map((project) => (
+					<ProjectCard key={project.id} {...project} />
 				))}
 			</div>
 
@@ -80,7 +80,7 @@ const Properties = () => {
 	);
 };
 
-export default Properties;
+export default Projects;
 
 const data = new Array(70).fill('').map((card, index) => {
 	const num = Math.floor(Math.random() * 10);

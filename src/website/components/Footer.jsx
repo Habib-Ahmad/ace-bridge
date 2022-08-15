@@ -52,8 +52,8 @@ export default Footer;
 
 const links = [
 	{
-		name: 'Properties',
-		to: '/properties',
+		name: 'Projects',
+		to: '/projects',
 	},
 	{
 		name: 'About us',

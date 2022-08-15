@@ -81,8 +81,8 @@ const links = [
 		to: '/',
 	},
 	{
-		name: 'Properties',
-		to: '/properties',
+		name: 'Projects',
+		to: '/projects',
 	},
 	{
 		name: 'About us',

@@ -1,6 +1,6 @@
 import Home from '../website/pages/Home';
-import Properties from '../website/pages/Properties';
-import Property from '../website/pages/Properties/Property';
+import Projects from '../website/pages/Projects';
+import Project from '../website/pages/Projects/Project';
 import AboutUs from '../website/pages/AboutUs';
 import ContactUs from '../website/pages/ContactUs';
 
@@ -10,12 +10,12 @@ export const appRoutes = [
 		element: <Home />,
 	},
 	{
-		to: '/properties',
-		element: <Properties />,
+		to: '/projects',
+		element: <Projects />,
 	},
 	{
-		to: '/properties/:id',
-		element: <Property />,
+		to: '/projects/:id',
+		element: <Project />,
 	},
 	{
 		to: '/about',

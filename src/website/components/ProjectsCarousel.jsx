@@ -3,11 +3,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionHeader from './SectionHeader';
-import PropertyCard from './PropertyCard';
+import ProjectCard from './ProjectCard';
 import nextArrow from '../assets/next-arrow.svg';
 import prevArrow from '../assets/prev-arrow.svg';
 
-const PropertiesCarousel = () => {
+const ProjectsCarousel = () => {
 	const slider = useRef();
 
 	const settings = {
@@ -63,19 +63,19 @@ const PropertiesCarousel = () => {
 	};
 
 	return (
-		<div id="properties" className="carousel">
-			<SectionHeader title="Properties" />
+		<div id="projects" className="carousel">
+			<SectionHeader title="Projects" />
 
 			<Slider {...settings} ref={slider}>
 				{CardData.map((card) => (
-					<PropertyCard key={card.id} {...card} />
+					<ProjectCard key={card.id} {...card} />
 				))}
 			</Slider>
 		</div>
 	);
 };
 
-export default PropertiesCarousel;
+export default ProjectsCarousel;
 
 const NextArrow = ({ slider }) => (
 	<div style={{ cursor: 'pointer' }} onClick={() => slider.current.slickNext()}>

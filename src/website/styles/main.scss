@@ -4,10 +4,10 @@
 
 @use './pages/home';
 @use './pages/about-us';
-@use './pages/properties';
-@use './pages/property';
+@use './pages/projects';
+@use './pages/project';
 
-@use './components/property-card';
+@use './components/project-card';
 @use './components/section-header';
 @use './components/testimonial-card';
 @use './components/contact-form';

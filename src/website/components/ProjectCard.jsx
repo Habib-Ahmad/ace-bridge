@@ -3,7 +3,7 @@ import bed from '../assets/bedroom.svg';
 import shower from '../assets/bathroom.svg';
 import car from '../assets/parking.svg';
 
-const PropertyCard = ({
+const ProjectCard = ({
 	id,
 	listing,
 	img,
@@ -34,8 +34,8 @@ const PropertyCard = ({
 	};
 	return (
 		<div
-			className="property-card"
-			onClick={() => navigate(`/properties/${id}`, { state: props })}
+			className="project-card"
+			onClick={() => navigate(`/projects/${id}`, { state: props })}
 		>
 			<p className="tag">For {listing}</p>
 			<div className="image-wrapper">
@@ -82,4 +82,4 @@ const PropertyCard = ({
 	);
 };
 
-export default PropertyCard;
+export default ProjectCard;
