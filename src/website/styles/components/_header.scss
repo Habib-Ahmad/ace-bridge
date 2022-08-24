@@ -1,17 +1,18 @@
 @use '../abstracts' as *;
 
 .header {
-	height: 90vh;
-	background: url('https://cdn.wallpapersafari.com/91/40/WiUNAm.jpg') no-repeat
-		center fixed;
+	height: 95vh;
+	background: url('../../assets/hero.png') no-repeat bottom fixed;
 	background-size: cover;
-	background-color: $color-text;
-	background-blend-mode: multiply;
 	color: $color-white;
+	padding-top: 200px;
+	@include responsive(md) {
+		padding-top: 70px;
+	}
 
 	.heading-wrapper {
 		display: block;
-		margin: 5% auto 0;
+		margin: 0 auto;
 		width: fit-content;
 
 		@include responsive(md) {

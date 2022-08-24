@@ -1,12 +1,9 @@
 import { Button } from '@mui/material';
-import Navbar from './Navbar';
 import underline from '../assets/header/underline.svg';
 
 const Header = () => {
 	return (
 		<div className="header">
-			<Navbar darkMode />
-
 			<div className="heading-wrapper">
 				<h1>
 					Creating urban lifestyle <br /> build to last...

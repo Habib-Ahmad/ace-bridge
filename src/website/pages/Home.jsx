@@ -1,3 +1,4 @@
+import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import ProjectsCarousel from '../components/ProjectsCarousel';
 import Projects from '../components/Projects';
@@ -8,6 +9,7 @@ import Footer from '../components/Footer';
 const Home = () => {
 	return (
 		<>
+			<Navbar transparent />
 			<Header />
 
 			<div className="content-wrapper">
