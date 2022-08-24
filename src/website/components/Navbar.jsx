@@ -102,10 +102,6 @@ const links = [
 		to: '/projects',
 	},
 	{
-		name: 'About us',
-		to: '/about',
-	},
-	{
 		name: 'Contact',
 		to: '/contact-us',
 	},

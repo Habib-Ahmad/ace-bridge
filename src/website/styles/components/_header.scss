@@ -1,19 +1,19 @@
 @use '../abstracts' as *;
 
-.header {
-	height: 95vh;
-	background: url('../../assets/hero.png') no-repeat bottom fixed;
+header {
+	height: 100vh;
+	background: no-repeat bottom fixed;
 	background-size: cover;
 	color: $color-white;
 	padding-top: 200px;
+	transition: all 500ms ease-in;
 	@include responsive(md) {
 		padding-top: 70px;
 	}
 
 	.heading-wrapper {
-		display: block;
-		margin: 0 auto;
-		width: fit-content;
+		@include flex;
+		margin: 0 10vw;
 
 		@include responsive(md) {
 			margin: 20% 10%;
@@ -22,30 +22,45 @@
 			}
 		}
 
-		img {
-			width: 150px;
-			margin-bottom: 40px;
+		h1 {
+			margin-bottom: 20px;
 		}
 
-		p {
+		.location {
 			font-size: 1.25rem;
 			font-weight: 500;
-			text-align: center;
 			margin-bottom: 60px;
 			color: $color-white;
 		}
 
-		button,
-		a {
-			display: flex;
-			margin: auto;
-			border: 1px solid $color-white;
-			color: $color-white;
-			width: 200px;
-			height: 60px;
-			text-transform: capitalize;
-			font-size: 1rem;
-			font-weight: 500;
+		button {
+			p {
+				text-transform: capitalize;
+				font-size: 1rem;
+				font-weight: 500;
+				color: $color-white;
+			}
+
+			img {
+				margin-left: 15px;
+			}
+		}
+	}
+
+	.arrow-wrapper {
+		display: flex;
+		flex-direction: column;
+		@include responsive(md) {
+			display: none;
+		}
+
+		div {
+			margin: 20px 0;
+			cursor: pointer;
+		}
+
+		img {
+			opacity: 0.7;
 		}
 	}
 }
