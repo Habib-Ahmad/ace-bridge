@@ -2,7 +2,7 @@
 
 h1 {
 	font-size: 3rem;
-	font-weight: 800;
+	font-weight: 700;
 	@include responsive(md) {
 		font-size: 2rem;
 		line-height: 3rem;
@@ -11,7 +11,7 @@ h1 {
 
 h2 {
 	font-size: 3rem;
-	font-weight: 800;
+	font-weight: 600;
 }
 
 h3 {

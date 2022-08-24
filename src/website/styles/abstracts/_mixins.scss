@@ -30,4 +30,9 @@
 			@content;
 		}
 	}
+	@if (type-of($breakPoint) == number) {
+		@media (max-width: $breakPoint) {
+			@content;
+		}
+	}
 }

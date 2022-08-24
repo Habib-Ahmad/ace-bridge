@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
+import About from '../components/About';
 import ProjectsCarousel from '../components/ProjectsCarousel';
 import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
@@ -13,6 +14,7 @@ const Home = () => {
 			<Header />
 
 			<div className="content-wrapper">
+				<About />
 				<ProjectsCarousel />
 				<Projects />
 				<Testimonials />
