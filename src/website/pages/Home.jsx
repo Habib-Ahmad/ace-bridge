@@ -1,9 +1,8 @@
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import About from '../components/About';
-import ProjectsCarousel from '../components/ProjectsCarousel';
 import Projects from '../components/Projects';
-import Testimonials from '../components/Testimonials';
+import WhoWeAre from '../components/WhoWeAre';
 import Partners from '../components/Partners';
 import Footer from '../components/Footer';
 
@@ -16,8 +15,7 @@ const Home = () => {
 			<div className="content-wrapper">
 				<About />
 				<Projects />
-				<ProjectsCarousel />
-				<Testimonials />
+				<WhoWeAre />
 			</div>
 
 			<Partners />
