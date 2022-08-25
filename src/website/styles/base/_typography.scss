@@ -10,8 +10,8 @@ h1 {
 }
 
 h2 {
-	font-size: 3rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 2rem;
 }
 
 h3 {
@@ -21,11 +21,12 @@ h3 {
 }
 
 h6 {
-	color: $color-primary;
-	font-size: 0.875rem;
-	font-weight: 700;
+	font-size: 1rem;
+	font-weight: 500;
 }
 
+h2,
+h6,
 p {
 	color: $color-text;
 }

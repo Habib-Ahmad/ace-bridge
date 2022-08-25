@@ -3,9 +3,9 @@ import cornerBorder from '../assets/corner-border.svg';
 const About = () => {
 	return (
 		<div className="about">
-			<div className="text">
-				<p className="title">About us</p>
-				<p className="title2">Our company</p>
+			<div className="title">
+				<h6>About us</h6>
+				<h2>Our company</h2>
 			</div>
 			<div className="content">
 				<div className="box"></div>

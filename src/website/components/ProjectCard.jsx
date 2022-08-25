@@ -1,82 +1,25 @@
 import { useNavigate } from 'react-router';
-import bed from '../assets/bedroom.svg';
-import shower from '../assets/bathroom.svg';
-import car from '../assets/parking.svg';
+import { Button } from '@mui/material';
+import image from '../assets/hero2.png';
+import arrow from '../assets/header/btn-arrow.svg';
 
-const ProjectCard = ({
-	id,
-	listing,
-	img,
-	amenities,
-	description,
-	title,
-	type,
-	price,
-	location,
-	bathrooms,
-	bedrooms,
-	parking,
-}) => {
+const ProjectCard = () => {
 	const navigate = useNavigate();
-	const props = {
-		id,
-		listing,
-		img,
-		amenities,
-		description,
-		title,
-		type,
-		price,
-		location,
-		bathrooms,
-		bedrooms,
-		parking,
-	};
+
 	return (
-		<div
-			className="project-card"
-			onClick={() => navigate(`/projects/${id}`, { state: props })}
-		>
-			<p className="tag">For {listing}</p>
-			<div className="image-wrapper">
-				<img src={img} alt="" />
-				<p className="type">{type}</p>
-			</div>
+		<div className="project-card">
+			<img src={image} alt="" className="image" />
 
-			<div className="body">
-				<div className="details">
-					<p className="title">{title}</p>
-					<p className="price">
-						₦{price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-					</p>
-				</div>
-				<p className="location">{location}</p>
-
-				<div className="specs">
-					<div className="spec">
-						<div className="icon-wrapper">
-							<img src={bed} alt="" />
-							<p className="spec-item">{bedrooms}</p>
-						</div>
-						<p>Bedrooms</p>
-					</div>
-
-					<div className="spec">
-						<div className="icon-wrapper">
-							<img src={shower} alt="" />
-							<p className="spec-item">{bathrooms}</p>
-						</div>
-						<p>Bathrooms</p>
-					</div>
-
-					<div className="spec">
-						<div className="icon-wrapper">
-							<img src={car} alt="" />
-							<p className="spec-item">{parking}</p>
-						</div>
-						<p>Parking lot</p>
-					</div>
-				</div>
+			<div className="content">
+				<p className="type">Premium duplexes</p>
+				<p className="location">BraveRock Residence - The Valley 2 Jahi</p>
+				<p className="description">
+					Spacious 4 unit luxury finished seven-bedroom terrace duplexes
+				</p>
+				<p className="year">2021</p>
+				<Button variant="contained" onClick={() => navigate(``)}>
+					<p>View Project</p> <img src={arrow} alt="" />
+				</Button>
 			</div>
 		</div>
 	);

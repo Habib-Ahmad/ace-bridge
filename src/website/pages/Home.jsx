@@ -15,8 +15,8 @@ const Home = () => {
 
 			<div className="content-wrapper">
 				<About />
-				<ProjectsCarousel />
 				<Projects />
+				<ProjectsCarousel />
 				<Testimonials />
 			</div>
 

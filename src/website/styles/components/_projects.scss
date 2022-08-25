@@ -1,24 +1,18 @@
 @use '../abstracts' as *;
 
 .projects-component {
-	margin-top: 100px;
-	padding: 50px 0;
+	padding: 30px 0;
 	background-color: $color-grey;
 	box-shadow: 0 0 0 100vmax $color-grey;
 	clip-path: inset(0 -100vmax);
 
-	.collage-wrapper {
-		display: grid;
-		place-items: center;
+	.title {
 		margin-bottom: 40px;
-
-		.kiWCaP {
-			width: 100%;
-		}
 	}
 
-	.button-wrapper {
-		display: flex;
-		justify-content: flex-end;
+	.project-wrapper {
+		@include flex;
+		flex-wrap: wrap;
+		width: 100%;
 	}
 }

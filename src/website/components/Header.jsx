@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Button } from '@mui/material';
 import arrow from '../assets/header/btn-arrow.svg';
 import previous from '../assets/header/prev-arrow.svg';
 import next from '../assets/header/next-arrow.svg';
-import { useNavigate } from 'react-router';
+import hero1 from '../assets/hero.png';
+import hero2 from '../assets/hero2.png';
 
 const Header = () => {
 	const [index, setIndex] = useState(0);
@@ -61,14 +63,14 @@ export default Header;
 const projects = [
 	{
 		id: 1,
-		img: '/static/media/hero.d2312031dceb34cf73b8.png',
+		img: hero1,
 		title: 'Khairiyya',
 		location: 'Jahi',
 		to: '',
 	},
 	{
 		id: 2,
-		img: 'static/media/hero2.92bf86731dd82e576f74.png',
+		img: hero2,
 		title: 'Bolori',
 		location: 'Asokoro',
 		to: '',
