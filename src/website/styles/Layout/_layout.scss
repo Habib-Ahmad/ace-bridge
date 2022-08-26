@@ -5,10 +5,10 @@
 
 	.children {
 		background-color: $color-grey;
-		padding: 50px 10vw;
+		padding: 110px 10vw;
 
 		@include responsive(sm) {
-			padding: 50px 5vw;
+			padding: 110px 5vw;
 		}
 	}
 }

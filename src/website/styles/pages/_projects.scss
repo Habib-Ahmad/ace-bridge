@@ -5,122 +5,26 @@
 		margin-bottom: 40px;
 	}
 
-	button {
-		color: $color-primary;
-		font-size: 1rem;
-		font-weight: 600;
-	}
-
-	.advanced-search {
-		display: none;
-		@include responsive(md) {
-			display: block;
-			margin-left: auto;
-		}
-	}
-
-	.filters {
-		@include flex;
-		justify-content: flex-end;
-		margin-bottom: 40px;
-
-		& > .MuiFormControl-root {
-			margin-right: 10px;
-			max-width: 300px;
-		}
-
-		@include responsive(md) {
-			flex-direction: column;
-			height: 0;
-			opacity: 0;
-			visibility: hidden;
-			transition: height 400ms;
-
-			& > .MuiFormControl-root {
-				margin-bottom: 10px;
-				margin-right: 0;
-			}
-
-			&.display {
-				opacity: 1;
-				height: max-content;
-				visibility: visible;
-			}
-		}
-	}
-
 	.list {
 		display: grid;
 		grid-template-columns: repeat(4, 25%);
-		grid-template-rows: repeat(3, 500px);
 
 		@include responsive(xl) {
 			grid-template-columns: repeat(3, 33%);
-			grid-template-rows: repeat(4, 500px);
+			row-gap: 40px;
 		}
 
 		@include responsive(lg) {
 			grid-template-columns: repeat(2, 50%);
-			grid-template-rows: repeat(6, 500px);
 		}
 
 		@include responsive(md) {
-			grid-template-columns: repeat(1, 100%);
-			grid-template-rows: repeat(12, 500px);
+			grid-template-columns: 100%;
 		}
 
 		.project-card {
 			display: block;
 			margin: 0 auto;
-		}
-	}
-
-	.materials-list {
-		display: grid;
-		place-items: center;
-		grid-template-columns: repeat(4, 25%);
-		grid-template-rows: repeat(1, 400px);
-
-		@include responsive(xl) {
-			grid-template-columns: repeat(3, 33%);
-			grid-template-rows: repeat(2, 400px);
-		}
-
-		@include responsive(lg) {
-			grid-template-columns: repeat(2, 50%);
-			grid-template-rows: repeat(2, 400px);
-		}
-
-		@include responsive(md) {
-			grid-template-columns: repeat(1, 100%);
-			grid-template-rows: repeat(4, 400px);
-		}
-
-		.project-card {
-			display: block;
-			margin: 0 auto;
-		}
-	}
-
-	.pagination {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		.btn {
-			color: $color-primary-light;
-			min-width: min-content;
-		}
-
-		.current {
-			color: $color-primary;
-		}
-
-		.dots {
-			color: $color-primary;
-			font-size: 1.2rem;
-			min-width: min-content;
-			padding: 0;
 		}
 	}
 }
