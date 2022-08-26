@@ -1,3 +1,4 @@
+import SectionHeading from './SectionHeading';
 import mission from '../assets/mission.svg';
 import vision from '../assets/vision.svg';
 import core from '../assets/core-values.svg';
@@ -5,8 +6,7 @@ import core from '../assets/core-values.svg';
 const WhoWeAre = () => {
 	return (
 		<div className="who-we-are">
-			<h6>AceBridge</h6>
-			<h2>Who we are</h2>
+			<SectionHeading tag="AceBridge" heading="Who we are" />
 
 			<div className="card-wrapper">
 				{cardData.map((card) => (

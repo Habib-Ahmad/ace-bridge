@@ -3,8 +3,13 @@
 .partners {
 	width: 100%;
 	padding: 20px 0;
+	margin-top: 40px;
 	overflow-x: hidden;
 	background-color: $color-white;
+
+	.section-heading {
+		margin-left: 10vw;
+	}
 
 	.logo-wrapper {
 		display: flex;

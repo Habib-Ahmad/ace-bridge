@@ -1,12 +1,10 @@
 import ProjectCard from './ProjectCard';
+import SectionHeading from './SectionHeading';
 
 const Projects = () => {
 	return (
 		<div id="projects" className="projects-component">
-			<div className="title">
-				<h6>Projects</h6>
-				<h2>Our Latest Projects</h2>
-			</div>
+			<SectionHeading tag="Projects" heading="Our Latest Projects" />
 
 			<div className="project-wrapper">
 				<ProjectCard />

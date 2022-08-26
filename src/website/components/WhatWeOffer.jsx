@@ -1,3 +1,4 @@
+import SectionHeading from './SectionHeading';
 import purchase from '../assets/purchase.svg';
 import coFinancing from '../assets/co-financing.svg';
 import realEstate from '../assets/real-estate.svg';
@@ -5,8 +6,7 @@ import realEstate from '../assets/real-estate.svg';
 const WhatWeOffer = () => {
 	return (
 		<div className="what-we-offer">
-			<h6>Services</h6>
-			<h2>What we offer</h2>
+			<SectionHeading tag="Services" heading="What we offer" />
 
 			<div className="card-wrapper">
 				<div className="card card1">

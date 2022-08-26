@@ -1,12 +1,10 @@
 import cornerBorder from '../assets/corner-border.svg';
+import SectionHeading from './SectionHeading';
 
 const About = () => {
 	return (
-		<div className="about">
-			<div className="title">
-				<h6>About us</h6>
-				<h2>Our company</h2>
-			</div>
+		<div id="about" className="about">
+			<SectionHeading tag="About us" heading="Our company" />
 			<div className="content">
 				<div className="box"></div>
 				<p>

@@ -4,8 +4,8 @@
 	height: calc(100vh - 60px);
 	margin-top: 80px;
 
-	.title {
-		margin-bottom: -40px;
+	.section-heading {
+		margin-bottom: -40px !important;
 		@include responsive(md) {
 			margin-bottom: 40px;
 		}

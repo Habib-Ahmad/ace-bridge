@@ -21,7 +21,8 @@ const Footer = () => {
 							<Button
 								key={link.name}
 								variant="text"
-								onClick={() => navigate(link.to)}
+								href={link.to.includes('#') ? link.to : null}
+								onClick={() => !link.to.includes('#') && navigate(link.to)}
 							>
 								{link.name}
 							</Button>
@@ -57,7 +58,7 @@ const links = [
 	},
 	{
 		name: 'About us',
-		to: '/about',
+		to: '#about',
 	},
 	{
 		name: 'Contact',

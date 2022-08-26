@@ -6,10 +6,6 @@
 	box-shadow: 0 0 0 100vmax $color-grey;
 	clip-path: inset(0 -100vmax);
 
-	.title {
-		margin-bottom: 40px;
-	}
-
 	.project-wrapper {
 		@include flex;
 		flex-wrap: wrap;
