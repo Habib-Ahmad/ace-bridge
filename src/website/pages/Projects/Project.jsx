@@ -1,135 +1,171 @@
-import { useLocation, useNavigate } from 'react-router';
-import { ReactPhotoCollage } from 'react-photo-collage';
-import { Button } from '@mui/material';
-import back from '../../assets/back-btn.svg';
-import amenity from '../../assets/amenity.svg';
-import bed from '../../assets/bedroom.svg';
-import shower from '../../assets/bathroom.svg';
-import car from '../../assets/parking.svg';
+import { useState } from 'react';
+import { Button, Tab, Tabs } from '@mui/material';
+import Navbar from '../../components/Navbar';
+import SectionHeading from '../../components/SectionHeading';
+import PaymentCard from '../../components/PaymentCard';
+import LinearProgressWithLabel from '../../components/LinearProgressWithLabel';
+import TabPanel from '../../components/TabPanel';
+import hero2 from '../../assets/hero2.png';
+import hero3 from '../../assets/hero3.png';
+import facilities from '../../assets/facilities.png';
+import floorPlan from '../../assets/floor-plan.png';
+import progress from '../../assets/progress.png';
+import house from '../../assets/house.svg';
+import bed from '../../assets/bed.svg';
+import sofa from '../../assets/sofa.svg';
+import flag from '../../assets/flag.svg';
 
 const Project = () => {
-	const {
-		id,
-		listing,
-		amenities,
-		description,
-		title,
-		price,
-		location,
-		bathrooms,
-		bedrooms,
-		parking,
-	} = useLocation().state;
-	const navigate = useNavigate();
+	const [value, setValue] = useState(0);
 
-	const setting = {
-		width: '80vw',
-		height: ['30vh', '20vh'],
-		layout: [2, 3],
-		photos: [
-			{
-				source:
-					'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/torquay-exterior-luxury-house-for-sale-1597322103.jpg',
-			},
-			{
-				source:
-					'https://images.privateproperty.com.ng/uploaded/6c/6e/2e/6c6e2e73-d609-42f3-abec-1d69d5057c98.jpg',
-			},
-			{
-				source:
-					'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYCW8TpwA39966ATvmOBQxp7fdcN2Sxbvhmn4DOyOoG58uU07bC0Oun-tu6IvECHrGpgE&usqp=CAU',
-			},
-			{
-				source:
-					'https://www.thinkmint.ng/reallifemagazine/wp-content/uploads/2021/03/b.jpg',
-			},
-			{
-				source:
-					'https://images.nigeriapropertycentre.com/properties/images/921023/0607b56747b797-4-bed-terrace-apartments-with-1-bq-each-terraced-duplexes-for-sale-lekki-phase-1-lekki-lagos.jpeg',
-			},
-			{
-				source: 'https://carrillionng.com.ng/wp-content/uploads/2018/09/E.jpg',
-			},
-		],
-		showNumOfRemainingPhotos: true,
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
 	};
 
 	return (
 		<div className="project">
-			<div className="project-header">
-				<div className="left">
-					<img src={back} alt="back" onClick={() => navigate(-1)} />
-					<div className="title-wrapper">
-						<div className="title">{title}</div>
-						<div className="location">{location}</div>
+			<Navbar transparent />
+
+			<header style={{ backgroundImage: `url(${hero2})` }}>
+				<div className="heading">
+					<p className="type">Premium Residents</p>
+					<h1>AceBridge Redsidence - Bolori</h1>
+					<p className="description">
+						Seven units of luxury finished Five Bedroom fully detached duplexes.
+					</p>
+				</div>
+			</header>
+
+			<div className="specifications">
+				<div className="spec-wrapper color1">
+					<img src={house} alt="" />
+					<div>
+						<p className="spec-name">House type</p>
+						<div className="spec">Terrace Duplexes</div>
 					</div>
 				</div>
-
-				<div className="right">
-					<div className="listing">For {listing}</div>
-					<div className="price">
-						₦{price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+				<div className="spec-wrapper color2">
+					<img src={bed} alt="" />
+					<div>
+						<p className="spec-name">Rooms</p>
+						<div className="spec">5 bedrooms with BQ and all en-suite</div>
+					</div>
+				</div>
+				<div className="spec-wrapper color3">
+					<img src={sofa} alt="" />
+					<div>
+						<p className="spec-name">Living rooms</p>
+						<div className="spec">Two living rooms</div>
+					</div>
+				</div>
+				<div className="spec-wrapper color4">
+					<img src={flag} alt="" />
+					<div>
+						<p className="spec-name">To be completed</p>
+						<div className="spec">May 2023</div>
 					</div>
 				</div>
 			</div>
 
-			<h3>Photos</h3>
-			<div className="collage-wrapper">
-				<ReactPhotoCollage {...setting} />
-			</div>
+			<img className="second-img" src={hero3} alt="" />
 
-			<h3>Project details</h3>
-			<div className="details-wrapper">
-				<div className="id-wrapper">
-					<p className="id">Project ID: {id}</p>
-					<div className="specs">
-						<div className="spec">
-							<div className="icon-wrapper">
-								<img src={bed} alt="bedrooms" />
-								<p className="spec-item">{bedrooms}</p>
-							</div>
-							<p>Bedrooms</p>
-						</div>
+			<div className="content-wrapper">
+				<div className="payment-plans">
+					<SectionHeading tag="Price" heading="Our payment plans" />
 
-						<div className="spec">
-							<div className="icon-wrapper">
-								<img src={shower} alt="bathrooms" />
-								<p className="spec-item">{bathrooms}</p>
-							</div>
-							<p>Bathrooms</p>
-						</div>
-
-						<div className="spec">
-							<div className="icon-wrapper">
-								<img src={car} alt="parking space" />
-								<p className="spec-item">{parking}</p>
-							</div>
-							<p>Parking lot</p>
-						</div>
+					<div className="card-wrapper">
+						<PaymentCard text="Fully Finished" price="130" />
+						<div style={{ width: '60px', height: '60px' }} />
+						<PaymentCard text="Semi Finished" price="100" />
 					</div>
 				</div>
 
-				<div className="description-wrapper">
-					<div className="amenities-wrapper">
-						<h3>Amenities</h3>
-						<div className="amenities">
-							{amenities.map((item) => (
-								<div key={item} className="amenity">
-									<img src={amenity} alt="amenity" />
-									<p>{item}</p>
-								</div>
-							))}
-						</div>
-					</div>
+				<div className="facilities">
+					<SectionHeading tag="Facilities" heading="Our Facilities" />
 
-					<div className="description">
-						<h3>Description</h3>
-						<p>{description}</p>
+					<div className="img-wrapper">
+						<img src={facilities} alt="" />
 					</div>
 				</div>
 
-				<div className="btn-wrapper">
-					<Button variant="outlined">Request Inspection</Button>
+				<div className="progress">
+					<SectionHeading tag="Progress" heading="Our Site Progress" />
+
+					<div className="tab-wrapper">
+						<Tabs
+							value={value}
+							onChange={handleChange}
+							variant="scrollable"
+							scrollButtons="auto"
+							textColor="primary"
+						>
+							<Tab label="Floor Plans" />
+							<Tab label="Progress Images" />
+							<Tab label="Progress Video" />
+							<Tab label="Progress Overview" />
+							<Tab label="Home Availability" />
+						</Tabs>
+					</div>
+
+					<TabPanel value={value} index={0}>
+						<div className="img-grid">
+							<img src={floorPlan} alt="" />
+							<img src={floorPlan} alt="" />
+							<img src={floorPlan} alt="" />
+							<img src={floorPlan} alt="" />
+							<img src={floorPlan} alt="" />
+							<img src={floorPlan} alt="" />
+						</div>
+					</TabPanel>
+					<TabPanel value={value} index={1}>
+						<div className="img-grid">
+							<img src={progress} alt="" />
+							<img src={progress} alt="" />
+							<img src={progress} alt="" />
+							<img src={progress} alt="" />
+							<img src={progress} alt="" />
+							<img src={progress} alt="" />
+						</div>
+					</TabPanel>
+					<TabPanel value={value} index={2}></TabPanel>
+					<TabPanel value={value} index={3}>
+						<div className="progress-bars">
+							<LinearProgressWithLabel
+								variant="determinate"
+								value={75}
+								color="primary"
+							/>
+							<LinearProgressWithLabel
+								variant="determinate"
+								value={65}
+								color="secondary"
+							/>
+							<LinearProgressWithLabel
+								variant="determinate"
+								value={55}
+								color="error"
+							/>
+						</div>
+					</TabPanel>
+					<TabPanel value={value} index={4}>
+						<div className="card-wrapper">
+							<div className="availability">
+								<span></span>
+								<p className="heading">Sold and Available</p>
+								<p className="total">Total Units</p>
+								<p className="amount">4</p>
+								<Button variant="contained">Selling Fast</Button>
+							</div>
+							<div style={{ width: '60px', height: '60px' }} />
+							<div className="availability">
+								<span></span>
+								<p className="heading">Sold and Available</p>
+								<p className="total">Total Available Units</p>
+								<p className="amount">4</p>
+								<Button variant="contained">Buy now</Button>
+							</div>
+						</div>
+					</TabPanel>
 				</div>
 			</div>
 		</div>

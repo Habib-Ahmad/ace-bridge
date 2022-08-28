@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+.payment-card {
+	width: 400px;
+	background-color: $color-white;
+	display: grid;
+	place-items: center;
+	text-align: left;
+	padding: 40px 20px;
+
+	.heading {
+		text-transform: uppercase;
+		font-size: 0.85rem;
+		color: $color-text-light;
+		margin-bottom: 10px;
+	}
+
+	.text {
+		font-weight: 700;
+		color: $color-black;
+		font-size: 1.2rem;
+		margin-bottom: 10px;
+	}
+
+	.price {
+		color: $color-primary;
+		font-size: 4rem;
+		font-weight: 700;
+	}
+
+	.million {
+		color: $color-primary;
+		font-size: 3rem;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 30px;
+	}
+
+	.item-list {
+		margin-bottom: 20px;
+		.item {
+			color: $color-text-light;
+			font-size: 0.85rem;
+			margin-bottom: 10px;
+		}
+	}
+}

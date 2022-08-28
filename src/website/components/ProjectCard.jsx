@@ -17,7 +17,7 @@ const ProjectCard = () => {
 					Spacious 4 unit luxury finished seven-bedroom terrace duplexes
 				</p>
 				<p className="year">2021</p>
-				<Button variant="contained" onClick={() => navigate(``)}>
+				<Button variant="contained" onClick={() => navigate(`/projects/1`)}>
 					<p>View Project</p> <img src={arrow} alt="" />
 				</Button>
 			</div>

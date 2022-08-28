@@ -16,7 +16,7 @@ const renderRoutes = () => {
 const App = () => {
 	const location = useLocation();
 
-	if (location.pathname === '/') {
+	if (location.pathname === '/' || location.pathname.split('/').length > 2) {
 		return renderRoutes();
 	}
 

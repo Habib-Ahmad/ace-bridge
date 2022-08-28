@@ -1,208 +1,215 @@
 @use '../abstracts' as *;
 
 .project {
-	.project-header {
-		@include flex;
-		margin-bottom: 40px;
+	header {
+		height: 80vh;
+
+		.heading {
+			display: block;
+			width: fit-content;
+			margin: auto;
+			text-align: center;
+			@include responsive(md) {
+				padding: 100px 5vw 0;
+			}
+
+			.type {
+				font-size: 1.2rem;
+				color: $color-white;
+				margin-bottom: 4px;
+				text-transform: uppercase;
+			}
+
+			h1 {
+				margin-bottom: 20px;
+			}
+
+			.description {
+				color: $color-white;
+			}
+		}
+	}
+
+	.specifications {
+		display: flex;
+		align-items: flex-start;
+		height: 20vh;
 		@include responsive(md) {
+			height: 60vh;
 			flex-direction: column;
-			align-items: flex-start;
 		}
 
-		.left {
-			@include flex;
+		.spec-wrapper {
+			flex: 1;
+			padding: 0 20px;
+			color: $color-white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: auto;
+			height: 100%;
 			@include responsive(md) {
-				align-items: flex-start;
 				justify-content: flex-start;
-				margin-bottom: 40px;
+				width: 100%;
+				padding: 0 10vw;
 			}
 
 			img {
-				width: 30px;
-				cursor: pointer;
-				margin-right: 80px;
-				@include responsive(md) {
-					margin-right: 30px;
-					margin-top: 10px;
-				}
+				width: 40px;
+				margin-right: 20px;
 			}
 
-			.title-wrapper {
-				.title {
-					font-size: 2rem;
-					font-weight: 700;
-					margin-bottom: 10px;
-				}
-
-				.location {
-					font-size: 1.2rem;
-					font-weight: 500;
-					color: $color-text-light;
-				}
-			}
-		}
-
-		.right {
-			margin-left: auto;
-			padding-left: 20px;
-			border-left: 2px solid $color-secondary;
-			@include responsive(md) {
-				margin-left: 0;
-				padding-left: 0;
-				border-left: none;
-			}
-
-			.listing {
-				font-size: 1.2rem;
+			.spec-name {
+				color: $color-white;
 				font-weight: 700;
+				text-transform: uppercase;
 			}
 
-			.price {
-				font-size: 2rem;
-				color: $color-primary;
+			.spec {
+				font-size: 0.8rem;
 			}
+		}
+
+		.color1 {
+			background-color: #063669;
+		}
+		.color2 {
+			background-color: #063f7c;
+		}
+		.color3 {
+			background-color: #08488d;
+		}
+		.color4 {
+			background-color: #0650a0;
 		}
 	}
 
-	.collage-wrapper {
-		background-color: $color-white;
-		padding: 40px;
-		border-radius: 5px;
-		display: grid;
-		place-items: center;
-		margin-bottom: 40px;
+	.second-img {
+		width: 100%;
+		margin-top: -25px;
 		@include responsive(md) {
-			padding: 15px;
-		}
-
-		.kiWCaP {
-			width: 100%;
+			margin-top: -20px;
+			height: 400px;
+			object-fit: cover;
 		}
 	}
 
-	.material-content {
-		@include flex;
-		justify-content: flex-start;
-		@include responsive(sm) {
-			align-items: flex-start;
-			flex-direction: column;
+	.payment-plans {
+		padding: 40px 0;
+		background-color: $color-grey;
+		box-shadow: 0 0 0 100vmax $color-grey;
+		clip-path: inset(0 -100vmax);
 
-			button {
-				margin: auto;
+		.card-wrapper {
+			@include flex;
+			width: 70%;
+			margin: auto;
+			@include responsive(md) {
+				flex-direction: column;
+				width: 100%;
+
+				.payment-card {
+					width: 100%;
+				}
 			}
 		}
+	}
+
+	.facilities {
+		padding: 80px 0;
 
 		.img-wrapper {
-			@include flex;
-			background-color: $color-white;
-			padding: 20px;
-			border-radius: 6px;
-			width: 50%;
-			height: 300px;
-			margin-bottom: 20px;
-			@include responsive(sm) {
-				width: 100%;
-			}
+			border: 1px dashed $color-black;
 
-			& > img {
+			img {
 				width: 100%;
-				height: 100%;
-				object-fit: cover;
+				padding: 20px;
+				@include responsive(md) {
+					padding: 10px;
+				}
 			}
 		}
 	}
 
-	.details-wrapper {
-		background-color: $color-white;
-		padding: 60px 40px;
-		@include responsive(md) {
-			padding: 20px 10px;
-		}
+	.progress {
+		padding: 40px 0;
+		background-color: $color-grey;
+		box-shadow: 0 0 0 100vmax $color-grey;
+		clip-path: inset(0 -100vmax);
+		text-align: center;
 
-		.id-wrapper {
-			@include flex;
-			padding-bottom: 40px;
-			border-bottom: 1px solid $color-secondary;
-
-			.id {
-				font-weight: 600;
-			}
-
-			.specs {
-				@include flex;
-
-				.spec {
-					margin-left: 10px;
-
-					.icon-wrapper {
-						display: flex;
-						margin-bottom: 5px;
-
-						img {
-							margin-right: 10px;
-						}
-
-						p {
-							font-size: 1rem;
-							font-weight: 500;
-							color: $color-text-light;
-						}
-					}
-				}
-
-				p {
-					font-size: 0.75rem;
-					color: $color-text-light;
-				}
+		.tab-wrapper {
+			.MuiTabs-flexContainer {
+				justify-content: center;
 			}
 		}
 
-		.description-wrapper {
+		.img-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			@include responsive(md) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@include responsive(sm) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			img {
+				width: 95%;
+				object-fit: contain;
+				margin: 0 auto 40px;
+			}
+		}
+
+		.progress-bars > .progress-with-label {
+			margin-bottom: 40px;
+		}
+
+		.card-wrapper {
 			@include flex;
-			align-items: flex-start;
-			padding-top: 40px;
+			justify-content: center;
 			@include responsive(md) {
 				flex-direction: column;
 			}
 
-			.amenities-wrapper {
-				flex: 1;
+			.availability {
+				position: relative;
+				background-color: $color-white;
+				width: 300px;
+				padding: 20px;
 
-				.amenities {
-					display: flex;
-					align-items: center;
-					flex-wrap: wrap;
+				span {
+					position: absolute;
+					top: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					height: 8px;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+					width: 60%;
+					background-color: $color-primary;
+				}
 
-					.amenity {
-						display: flex;
-						align-items: center;
-						justify-content: flex-start;
-						width: 50%;
-						margin-bottom: 20px;
+				.heading {
+					text-transform: uppercase;
+					color: $color-text-light;
+					font-size: 0.85rem;
+					margin-bottom: 40px;
+				}
 
-						img {
-							margin-right: 10px;
-						}
-					}
+				.total {
+					font-weight: 700;
+					font-size: 1.5rem;
+					margin-bottom: 40px;
+				}
+
+				.amount {
+					font-size: 4rem;
+					font-weight: 700;
+					color: $color-primary;
+					margin-bottom: 40px;
 				}
 			}
-
-			.description {
-				flex: 1;
-				@include responsive(md) {
-					margin-top: 40px;
-				}
-
-				p {
-					line-height: 1.8rem;
-					font-weight: 500;
-				}
-			}
-		}
-		.btn-wrapper {
-			margin-top: 40px;
-			display: grid;
-			place-items: center;
 		}
 	}
 }
