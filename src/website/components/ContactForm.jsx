@@ -12,15 +12,12 @@ const ContactForm = () => {
 		<div className="contact-form">
 			<Formik
 				initialValues={{
-					firstName: '',
-					lastName: '',
+					name: '',
 					email: '',
-					phone: '',
 					message: '',
 				}}
 				validationSchema={Yup.object().shape({
-					firstName: Yup.string().required('This field is required'),
-					lastName: Yup.string().required('This field is required'),
+					name: Yup.string().required('This field is required'),
 					email: Yup.string()
 						.trim()
 						.required('This field is required')
@@ -40,24 +37,13 @@ const ContactForm = () => {
 					<form onSubmit={handleSubmit} noValidate>
 						<div className="row">
 							<TextField
-								label="First name"
-								name="firstName"
+								label="Name"
+								name="name"
 								size="small"
 								fullWidth
-								helperText={touched.firstName ? errors.firstName : ''}
-								error={touched.firstName && Boolean(errors.firstName)}
-								value={values.firstName}
-								onChange={handleChange}
-							/>
-							<div className="space" />
-							<TextField
-								label="Last Name"
-								name="lastName"
-								size="small"
-								fullWidth
-								helperText={touched.lastName ? errors.lastName : ''}
-								error={touched.lastName && Boolean(errors.lastName)}
-								value={values.lastName}
+								helperText={touched.name ? errors.name : ''}
+								error={touched.name && Boolean(errors.name)}
+								value={values.name}
 								onChange={handleChange}
 							/>
 						</div>
@@ -71,16 +57,6 @@ const ContactForm = () => {
 								helperText={touched.email ? errors.email : ''}
 								error={touched.email && Boolean(errors.email)}
 								value={values.email}
-								onChange={handleChange}
-							/>
-							<div className="space" />
-							<TextField
-								label="Phone Number"
-								name="phone"
-								size="small"
-								helperText={errors.email ? ' ' : ''}
-								fullWidth
-								value={values.phone}
 								onChange={handleChange}
 							/>
 						</div>
@@ -103,10 +79,8 @@ const ContactForm = () => {
 							type="submit"
 							size="large"
 							sx={{
-								display: 'block',
-								margin: '20px 0 0 auto',
-								width: '100px',
-								height: '40px',
+								marginTop: '20px',
+								fontWeight: '400',
 							}}
 						>
 							{isSubmitting ? (

@@ -10,8 +10,8 @@ h1 {
 }
 
 h2 {
-	font-weight: 700;
 	font-size: 2rem;
+	font-weight: 700;
 }
 
 h3 {
@@ -29,4 +29,8 @@ h3,
 h6,
 p {
 	color: $color-text;
+}
+
+address {
+	font-style: normal;
 }
