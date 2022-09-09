@@ -1,7 +1,7 @@
-import Home from '../website/pages/Home';
-import Projects from '../website/pages/Projects';
-import Project from '../website/pages/Projects/Project';
-import ContactUs from '../website/pages/ContactUs';
+import Home from '../pages/Home';
+import Projects from '../pages/Projects';
+import Project from '../pages/Projects/Project';
+import ContactUs from '../pages/ContactUs';
 
 export const appRoutes = [
 	{

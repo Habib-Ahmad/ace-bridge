@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { appRoutes } from './routes/routes';
-import Layout from './website/components/Layout';
+import Layout from './components/Layout';
 
 const renderRoutes = () => {
 	return (
