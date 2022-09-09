@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.auth {
+	display: grid;
+	place-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: $color-grey-light;
+
+	.card-wrapper {
+		background-color: tomato;
+		width: 450px;
+	}
+}
