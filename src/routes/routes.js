@@ -2,7 +2,8 @@ import Home from '../pages/Home';
 import Projects from '../pages/Projects';
 import Project from '../pages/Projects/Project';
 import ContactUs from '../pages/ContactUs';
-import SignIn from '../pages/SignIn';
+import Admin from '../pages/Admin';
+import AdminProjects from '../pages/Admin/Projects';
 
 export const appRoutes = [
 	{
@@ -23,6 +24,10 @@ export const appRoutes = [
 	},
 	{
 		to: '/admin',
-		element: <SignIn />,
+		element: <Admin />,
+	},
+	{
+		to: '/admin/projects',
+		element: <AdminProjects />,
 	},
 ];

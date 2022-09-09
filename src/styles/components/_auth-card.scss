@@ -27,5 +27,14 @@
 
 	.MuiButton-contained {
 		height: 48px;
+		margin-bottom: 10px;
+	}
+
+	.error {
+		display: block;
+		margin: auto;
+		width: fit-content;
+		font-size: 0.75rem;
+		color: red;
 	}
 }

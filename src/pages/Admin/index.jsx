@@ -1,6 +1,6 @@
-import SignInCard from '../components/SignInCard';
+import SignInCard from '../../components/SignInCard';
 
-const SignIn = () => {
+const Admin = () => {
 	return (
 		<div className="auth">
 			<div className="card-wrapper">
@@ -10,4 +10,4 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
+export default Admin;

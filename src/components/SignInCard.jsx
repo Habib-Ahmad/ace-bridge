@@ -1,11 +1,28 @@
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, CircularProgress, TextField } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import avatar from '../assets/avatar.svg';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const SignInCard = () => {
-	const handleSubmit = (values) => {
-		console.log(values);
+	const [errorMsg, setErrorMsg] = useState('');
+	const navigate = useNavigate();
+
+	const handleSubmit = async ({ email, password }) => {
+		setErrorMsg('');
+
+		signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				const token = userCredential.user.accessToken;
+				localStorage.setItem('ace-bridge-accessToken', token);
+				navigate('projects');
+			})
+			.catch((error) => {
+				if (error.code === 'auth/wrong-password') setErrorMsg('Wrong password');
+			});
 	};
 
 	return (
@@ -48,6 +65,7 @@ const SignInCard = () => {
 						<TextField
 							label="Password"
 							name="password"
+							type="password"
 							fullWidth
 							helperText={touched.password ? errors.password : ''}
 							error={touched.password && Boolean(errors.password)}
@@ -64,6 +82,7 @@ const SignInCard = () => {
 								'Sign in'
 							)}
 						</Button>
+						{errorMsg && <p className="error">{errorMsg}</p>}
 					</form>
 				)}
 			</Formik>
