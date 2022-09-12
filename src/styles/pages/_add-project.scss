@@ -1,0 +1,104 @@
+@use '../abstracts' as *;
+
+.add-project {
+	background-color: $color-grey;
+	padding: 60px 10vw;
+
+	h2 {
+		margin-top: 60px;
+		margin-bottom: 20px;
+		color: $color-primary-dark;
+		font-weight: 600;
+		font-size: 1.4rem;
+	}
+
+	.row {
+		@include flex;
+		align-items: flex-start;
+		margin-bottom: 40px;
+
+		.space {
+			width: 60px;
+			height: 60px;
+		}
+
+		&.ctrl-width {
+			width: 32%;
+		}
+
+		&.column {
+			flex-direction: column;
+		}
+
+		.thumbnail-wrapper {
+			display: block;
+			margin-right: auto;
+
+			.thumbnail {
+				min-width: 280px;
+				width: 350px;
+				height: 450px;
+				box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+				border-radius: 6px;
+				overflow: hidden;
+
+				img {
+					object-fit: cover;
+					object-position: center center;
+					width: 100%;
+					height: 100%;
+					transition: transform 300ms ease-out;
+				}
+
+				&:hover {
+					img {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+		.image-wrapper {
+			display: block;
+
+			.image {
+				margin: 0 -10vw;
+				width: 100vw;
+				height: 80vh;
+
+				img {
+					object-fit: cover;
+					object-position: center center;
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		.img-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			row-gap: 2;
+			@include responsive(md) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@include responsive(sm) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			img {
+				width: 95%;
+				object-fit: contain;
+				margin: 0 auto 40px;
+			}
+		}
+	}
+
+	// input {
+	// 	background-color: $color-white;
+	// }
+
+	.error {
+		color: $color-red;
+	}
+}

@@ -11,16 +11,19 @@ const SignInCard = () => {
 	const [errorMsg, setErrorMsg] = useState('');
 	const navigate = useNavigate();
 
-	const handleSubmit = async ({ email, password }) => {
+	const handleSubmit = ({ email, password }, setSubmitting) => {
+		setSubmitting(true);
 		setErrorMsg('');
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
+				setSubmitting(false);
 				const token = userCredential.user.accessToken;
 				localStorage.setItem('ace-bridge-accessToken', token);
 				navigate('projects');
 			})
 			.catch((error) => {
+				setSubmitting(false);
 				if (error.code === 'auth/wrong-password') setErrorMsg('Wrong password');
 			});
 	};
@@ -41,7 +44,9 @@ const SignInCard = () => {
 						.email('E-mail is not valid'),
 					password: Yup.string().required('This field is required'),
 				})}
-				onSubmit={(values) => handleSubmit(values)}
+				onSubmit={(values, { setSubmitting }) =>
+					handleSubmit(values, setSubmitting)
+				}
 			>
 				{({
 					handleSubmit,

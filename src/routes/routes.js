@@ -4,6 +4,7 @@ import Project from '../pages/Projects/Project';
 import ContactUs from '../pages/ContactUs';
 import Admin from '../pages/Admin';
 import AdminProjects from '../pages/Admin/Projects';
+import AddProject from '../pages/Admin/AddProject';
 
 export const appRoutes = [
 	{
@@ -29,5 +30,13 @@ export const appRoutes = [
 	{
 		to: '/admin/projects',
 		element: <AdminProjects />,
+	},
+	{
+		to: '/admin/projects/:id',
+		element: <div>Hello world</div>,
+	},
+	{
+		to: '/admin/add-project',
+		element: <AddProject />,
 	},
 ];
