@@ -25,3 +25,35 @@ export const uploadImage = async (file, folder) => {
 		.then((snapshot) => getDownloadURL(snapshot.ref))
 		.catch((error) => console.log(error));
 };
+
+export const deletePreviewFromMultiple = (
+	index,
+	setPreviewState,
+	setFileState
+) => {
+	setPreviewState((prev) => {
+		const current = [...prev];
+		current.splice(index, 1);
+		return current;
+	});
+	setFileState((prev) => {
+		const current = [...prev];
+		current.splice(index, 1);
+		return current;
+	});
+};
+
+export const handleMultiplePreviewUpload = (
+	e,
+	setPreviewState,
+	setFileState
+) => {
+	const files = [...e.target.files];
+	files.forEach((file) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () =>
+			setPreviewState((prev) => [...prev, reader.result]);
+		setFileState((prev) => [...prev, file]);
+	});
+};

@@ -5,10 +5,10 @@ import {
 	handleMultiplePreviewUpload,
 } from './functions';
 
-const FloorPlan = ({ setPreview, setFile, preview }) => {
+const ProgressImages = ({ setPreview, setFile, preview }) => {
 	return (
 		<>
-			<h2>Floor Plan</h2>
+			<h2>Progress Images</h2>
 			<div className="row column">
 				<input
 					className="upload-btn"
@@ -44,4 +44,4 @@ const FloorPlan = ({ setPreview, setFile, preview }) => {
 	);
 };
 
-export default FloorPlan;
+export default ProgressImages;

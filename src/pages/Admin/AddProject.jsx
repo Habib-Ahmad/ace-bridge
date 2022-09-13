@@ -14,6 +14,7 @@ import FloorPlan from '../../components/AddProject/FloorPlan';
 import Availability from '../../components/AddProject/Availability';
 import { uploadImage } from '../../components/AddProject/functions';
 import back from '../../assets/back-btn.svg';
+import ProgressImages from '../../components/AddProject/ProgressImages';
 
 const AddProject = () => {
 	const [state, setState] = useState({
@@ -25,54 +26,60 @@ const AddProject = () => {
 		livingRooms: '',
 		bedRooms: '',
 		status: '',
+		type: '',
 		finishedPrice: '',
 		unFinishedPrice: '',
 		totalUnits: '',
 		availableUnits: '',
 	});
 	const [errorMsg, setErrorMsg] = useState('');
+	const [delayText, setDelayText] = useState('hello world');
 
 	const [thumbnailPreview, setThumbnailPreview] = useState();
 	const [coverImagePreview, setCoverImagePreview] = useState();
 	const [floorPlanPreview, setFloorPlanPreview] = useState([]);
+	const [progImagesPreview, setProgImagesPreview] = useState([]);
 
 	const [thumbnailFile, setThumbnailFile] = useState();
 	const [coverImageFile, setcoverImageFile] = useState();
 	const [floorPlanFile, setFloorPlanFile] = useState([]);
+	const [progImagesFile, setProgImagesFile] = useState([]);
 
 	const navigate = useNavigate();
-	const location = useLocation();
+	const location = useLocation().state;
 
 	useEffect(() => {
 		setState((prev) => {
-			if (location.state) {
-				return location.state;
+			if (location) {
+				return location;
 			}
 			return prev;
 		});
-	}, [location.state]);
-
-	const deleteFloorPlan = (index) => {
-		const arr = [...floorPlanPreview];
-		arr.splice(index, 1);
-		setFloorPlanPreview(arr);
-		setFloorPlanFile(arr);
-	};
-
-	const previewMultipleFiles = (file, setPreviewState) => {
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onloadend = () =>
-			setPreviewState((prev) => [...prev, reader.result]);
-	};
-
-	const handleMultiplePreviewUpload = (e) => {
-		const files = [...e.target.files];
-		files.forEach((file) => {
-			previewMultipleFiles(file, setFloorPlanPreview);
-			setFloorPlanFile((prev) => [...prev, file]);
+		setFloorPlanPreview((prev) => {
+			if (location?.floorPlan) {
+				return location?.floorPlan;
+			}
+			return prev;
 		});
-	};
+		setFloorPlanFile((prev) => {
+			if (location?.floorPlan) {
+				return location?.floorPlan;
+			}
+			return prev;
+		});
+		setProgImagesPreview((prev) => {
+			if (location?.progressImages) {
+				return location?.progressImages;
+			}
+			return prev;
+		});
+		setProgImagesFile((prev) => {
+			if (location?.progressImages) {
+				return location?.progressImages;
+			}
+			return prev;
+		});
+	}, [location]);
 
 	const handleSubmit = async (values) => {
 		setErrorMsg('');
@@ -83,6 +90,10 @@ const AddProject = () => {
 			setErrorMsg('You have to upload a thumbnail and cover image');
 			return;
 		}
+
+		setDelayText(
+			'Upload may take some time depending on number and quality of images'
+		);
 
 		if (!values.id) {
 			values.id = uuid();
@@ -96,8 +107,27 @@ const AddProject = () => {
 			values.coverImage = await uploadImage(coverImageFile, 'thumbnail');
 		}
 
+		values.floorPlan = await Promise.all(
+			[...floorPlanFile].map(async (img) => {
+				if (typeof img !== 'string') {
+					return await uploadImage(img, 'floor-plan');
+				}
+				return img;
+			})
+		);
+
+		values.progressImages = await Promise.all(
+			[...progImagesFile].map(async (img) => {
+				if (typeof img !== 'string') {
+					return await uploadImage(img, 'progress-images');
+				}
+				return img;
+			})
+		);
+
 		try {
 			await setDoc(doc(db, `projects/${values.id}`), values);
+			setDelayText('');
 			navigate('/admin/projects');
 		} catch (error) {
 			console.log(error.message);
@@ -171,11 +201,15 @@ const AddProject = () => {
 						/>
 
 						<FloorPlan
-							handleMultiplePreviewUpload={handleMultiplePreviewUpload}
 							setPreview={setFloorPlanPreview}
 							setFile={setFloorPlanFile}
 							preview={floorPlanPreview}
-							deleteFloorPlan={deleteFloorPlan}
+						/>
+
+						<ProgressImages
+							setPreview={setProgImagesPreview}
+							setFile={setProgImagesFile}
+							preview={progImagesPreview}
 						/>
 
 						<Availability
@@ -192,6 +226,7 @@ const AddProject = () => {
 								'Upload'
 							)}
 						</Button>
+						{delayText && <p className="delay">{delayText}</p>}
 						{errorMsg && <p className="error">{errorMsg}</p>}
 					</form>
 				)}
