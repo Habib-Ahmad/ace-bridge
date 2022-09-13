@@ -7,7 +7,7 @@ const PaymentPlans = ({ touched, errors, values, handleChange }) => {
 
 			<div className="row">
 				<TextField
-					label="Fully Finished"
+					label="Fully Finished Price"
 					name="finishedPrice"
 					type="number"
 					fullWidth
@@ -20,7 +20,7 @@ const PaymentPlans = ({ touched, errors, values, handleChange }) => {
 				<div className="space" />
 
 				<TextField
-					label="Semi Finished"
+					label="Semi Finished Price"
 					name="unFinishedPrice"
 					type="number"
 					fullWidth

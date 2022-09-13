@@ -1,7 +1,7 @@
 import { Close } from '@mui/icons-material';
 import { deletePreview, handlePreviewUpload } from './functions';
 
-const CoverImage = ({ setPreview, setFile, preview }) => {
+const CoverImage = ({ setPreview, setFile, preview, value }) => {
 	return (
 		<>
 			<h2>Project Cover Image</h2>
@@ -14,7 +14,7 @@ const CoverImage = ({ setPreview, setFile, preview }) => {
 					onChange={(e) => handlePreviewUpload(e, setPreview, setFile)}
 				/>
 				<br />
-				{preview && (
+				{(preview || value) && (
 					<div className="image-wrapper">
 						<p>Preview</p>
 						<Close
@@ -27,7 +27,7 @@ const CoverImage = ({ setPreview, setFile, preview }) => {
 						/>
 
 						<div className="image">
-							<img src={preview} alt="" />
+							<img src={preview || value} alt="" />
 						</div>
 					</div>
 				)}

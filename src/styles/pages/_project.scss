@@ -3,6 +3,8 @@
 .project {
 	header {
 		height: 80vh;
+		background-color: #021c38e0;
+		background-blend-mode: multiply;
 
 		.heading {
 			display: block;
@@ -176,6 +178,7 @@
 				position: relative;
 				background-color: $color-white;
 				width: 300px;
+				height: 350px;
 				padding: 20px;
 
 				span {

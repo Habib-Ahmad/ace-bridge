@@ -2,7 +2,16 @@
 
 .add-project {
 	background-color: $color-grey;
-	padding: 60px 10vw;
+
+	.heading-wrapper {
+		@include flex;
+		width: fit-content;
+
+		& > div {
+			cursor: pointer;
+			margin-right: 20px;
+		}
+	}
 
 	h2 {
 		margin-top: 60px;
@@ -16,14 +25,22 @@
 		@include flex;
 		align-items: flex-start;
 		margin-bottom: 40px;
+		@include responsive(md) {
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: 20px;
+		}
 
 		.space {
 			width: 60px;
-			height: 60px;
+			height: 20px;
 		}
 
 		&.ctrl-width {
-			width: 32%;
+			width: 66%;
+			@include responsive(md) {
+				width: 100%;
+			}
 		}
 
 		&.column {

@@ -1,12 +1,13 @@
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const PaymentCard = ({ price, text }) => {
+	const navigate = useNavigate();
 	return (
 		<div className="payment-card">
 			<div className="heading">Payment over project duration</div>
 			<p className="text">{text}</p>
 			<p className="price">₦{price}</p>
-			<p className="million">Million</p>
 
 			<div className="item-list">
 				<p className="item">Make initial payment</p>
@@ -15,7 +16,11 @@ const PaymentCard = ({ price, text }) => {
 				<p className="item">AceBridge welcome package</p>
 			</div>
 
-			<Button variant="contained" size="large">
+			<Button
+				onClick={() => navigate('/contact-us')}
+				variant="contained"
+				size="large"
+			>
 				Buy now
 			</Button>
 		</div>

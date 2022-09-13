@@ -22,18 +22,11 @@ const ProjectDetails = ({ touched, errors, values, handleChange }) => {
 					label="Category"
 					name="category"
 					fullWidth
-					select
 					helperText={touched.category ? errors.category : ''}
 					error={touched.category && Boolean(errors.category)}
 					value={values.category}
 					onChange={handleChange}
-				>
-					{options.map((option) => (
-						<MenuItem key={option} value={option}>
-							{option}
-						</MenuItem>
-					))}
-				</TextField>
+				/>
 
 				<div className="space" />
 
@@ -108,6 +101,18 @@ const ProjectDetails = ({ touched, errors, values, handleChange }) => {
 
 			<div className="row ctrl-width">
 				<TextField
+					label="Type"
+					name="type"
+					fullWidth
+					helperText={touched.type ? errors.type : ''}
+					error={touched.type && Boolean(errors.type)}
+					value={values.type}
+					onChange={handleChange}
+				/>
+
+				<div className="space" />
+
+				<TextField
 					label="Location"
 					name="location"
 					fullWidth
@@ -122,5 +127,3 @@ const ProjectDetails = ({ touched, errors, values, handleChange }) => {
 };
 
 export default ProjectDetails;
-
-const options = ['1', '2', '3'];

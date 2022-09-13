@@ -16,11 +16,7 @@ const renderRoutes = () => {
 const App = () => {
 	const path = useLocation().pathname;
 
-	if (
-		path === '/' ||
-		path.split('/').length > 2 ||
-		path.split('/').includes('admin')
-	) {
+	if (path === '/' || path.split('/').pop() === 'admin') {
 		return renderRoutes();
 	}
 

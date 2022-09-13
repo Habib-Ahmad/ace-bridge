@@ -1,6 +1,8 @@
 @use '../abstracts' as *;
 
 .projects {
+	min-height: 50vh;
+
 	h1 {
 		margin-bottom: 40px;
 	}
@@ -29,6 +31,29 @@
 	}
 
 	&.admin {
-		margin: 20px 5vw;
+		.heading {
+			@include flex;
+			margin-bottom: 40px;
+
+			.btn-wrapper {
+				@include flex;
+				align-items: center;
+
+				& > div {
+					cursor: pointer;
+				}
+
+				h1 {
+					margin-left: 20px;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&.loader {
+		width: 100%;
+		display: grid;
+		place-items: center;
 	}
 }

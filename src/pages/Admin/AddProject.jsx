@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import uuid from 'react-uuid';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
@@ -13,8 +13,23 @@ import CoverImage from '../../components/AddProject/CoverImage';
 import FloorPlan from '../../components/AddProject/FloorPlan';
 import Availability from '../../components/AddProject/Availability';
 import { uploadImage } from '../../components/AddProject/functions';
+import back from '../../assets/back-btn.svg';
 
 const AddProject = () => {
+	const [state, setState] = useState({
+		title: '',
+		category: '',
+		location: '',
+		completionYear: '',
+		description: '',
+		livingRooms: '',
+		bedRooms: '',
+		status: '',
+		finishedPrice: '',
+		unFinishedPrice: '',
+		totalUnits: '',
+		availableUnits: '',
+	});
 	const [errorMsg, setErrorMsg] = useState('');
 
 	const [thumbnailPreview, setThumbnailPreview] = useState();
@@ -26,6 +41,16 @@ const AddProject = () => {
 	const [floorPlanFile, setFloorPlanFile] = useState([]);
 
 	const navigate = useNavigate();
+	const location = useLocation();
+
+	useEffect(() => {
+		setState((prev) => {
+			if (location.state) {
+				return location.state;
+			}
+			return prev;
+		});
+	}, [location.state]);
 
 	const deleteFloorPlan = (index) => {
 		const arr = [...floorPlanPreview];
@@ -51,21 +76,28 @@ const AddProject = () => {
 
 	const handleSubmit = async (values) => {
 		setErrorMsg('');
-		if (!thumbnailFile || !coverImageFile) {
+		if (
+			(!thumbnailFile && !values.thumbnail) ||
+			(!coverImageFile && !values.coverImage)
+		) {
 			setErrorMsg('You have to upload a thumbnail and cover image');
 			return;
 		}
 
-		const id = uuid();
-		const thumbnailUrl = await uploadImage(thumbnailFile, 'thumbnail');
-		const imageUrl = await uploadImage(coverImageFile, 'cover');
+		if (!values.id) {
+			values.id = uuid();
+		}
 
-		values.id = id;
-		values.thumbnail = thumbnailUrl;
-		values.coverImage = imageUrl;
+		if (thumbnailFile) {
+			values.thumbnail = await uploadImage(thumbnailFile, 'thumbnail');
+		}
+
+		if (coverImageFile) {
+			values.coverImage = await uploadImage(coverImageFile, 'thumbnail');
+		}
 
 		try {
-			await setDoc(doc(db, `projects/${id}`), values);
+			await setDoc(doc(db, `projects/${values.id}`), values);
 			navigate('/admin/projects');
 		} catch (error) {
 			console.log(error.message);
@@ -75,35 +107,20 @@ const AddProject = () => {
 	return (
 		<div className="add-project">
 			<Formik
-				initialValues={{
-					title: '',
-					category: '',
-					location: '',
-					completionYear: '',
-					description: '',
-					livingRooms: '',
-					bedRooms: '',
-					status: '',
-					finishedPrice: '',
-					unFinishedPrice: '',
-					totalUnits: '',
-					availableUnits: '',
-				}}
+				initialValues={state}
+				enableReinitialize={true}
 				validationSchema={Yup.object().shape({
 					title: Yup.string().trim().required('This field is required'),
 					category: Yup.string().trim().required('This field is required'),
-					location: Yup.string().trim().required('This field is required'),
-					completionYear: Yup.string()
-						.trim()
-						.required('This field is required'),
+					type: Yup.string().trim().required('This field is required'),
+					status: Yup.string().trim().required('This field is required'),
 					description: Yup.string().trim().required('This field is required'),
+					completionYear: Yup.number().required('This field is required'),
 					livingRooms: Yup.number().required('This field is required'),
 					bedRooms: Yup.number().required('This field is required'),
-					status: Yup.string().trim().required('This field is required'),
-					finishedPrice: Yup.string().trim().required('This field is required'),
-					unFinishedPrice: Yup.string()
-						.trim()
-						.required('This field is required'),
+					location: Yup.string().trim().required('This field is required'),
+					finishedPrice: Yup.number().required('This field is required'),
+					unFinishedPrice: Yup.number().required('This field is required'),
 					totalUnits: Yup.number().required('This field is required'),
 					availableUnits: Yup.number().required('This field is required'),
 				})}
@@ -118,7 +135,12 @@ const AddProject = () => {
 					isSubmitting,
 				}) => (
 					<form onSubmit={handleSubmit}>
-						<h1>Add Project</h1>
+						<div className="heading-wrapper">
+							<div onClick={() => navigate(-1)}>
+								<img src={back} alt="" />
+							</div>
+							<h1>Add Project</h1>
+						</div>
 
 						<ProjectDetails
 							touched={touched}
@@ -136,14 +158,16 @@ const AddProject = () => {
 
 						<Thumbnail
 							setPreview={setThumbnailPreview}
-							setFile={setThumbnailFile}
 							preview={thumbnailPreview}
+							setFile={setThumbnailFile}
+							value={state.thumbnail}
 						/>
 
 						<CoverImage
 							setPreview={setCoverImagePreview}
 							setFile={setcoverImageFile}
 							preview={coverImagePreview}
+							value={state.coverImage}
 						/>
 
 						<FloorPlan
@@ -165,7 +189,7 @@ const AddProject = () => {
 							{isSubmitting ? (
 								<CircularProgress sx={{ color: 'white' }} />
 							) : (
-								'Add Project'
+								'Upload'
 							)}
 						</Button>
 						{errorMsg && <p className="error">{errorMsg}</p>}
