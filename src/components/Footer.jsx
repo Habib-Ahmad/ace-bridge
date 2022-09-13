@@ -12,9 +12,14 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="footer-content">
-				<img src={logo} alt="Ace bridge" onClick={() => navigate('/')} />
+				<img
+					src={logo}
+					alt="Ace bridge"
+					onClick={() => navigate('/')}
+					data-aos="fade-up"
+				/>
 
-				<div>
+				<div data-aos="fade-up">
 					<h4>Overview</h4>
 					<div className="links-wrapper">
 						{links.map((link) => (
@@ -30,7 +35,7 @@ const Footer = () => {
 					</div>
 				</div>
 
-				<div>
+				<div data-aos="fade-up">
 					<h4>Social Media</h4>
 					<div className="social-links-wrapper">
 						{socialMediaLinks.map((link) => (

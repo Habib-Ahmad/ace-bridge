@@ -9,8 +9,13 @@ const WhoWeAre = () => {
 			<SectionHeading tag="AceBridge" heading="Who we are" />
 
 			<div className="card-wrapper">
-				{cardData.map((card) => (
-					<div key={card.title} className="card">
+				{cardData.map((card, index) => (
+					<div
+						key={card.title}
+						className="card"
+						data-aos="fade-up"
+						data-aos-delay={String(index * 100)}
+					>
 						<img src={card.icon} alt="" />
 						<h3>{card.title}</h3>
 						<p className="text">{card.text}</p>

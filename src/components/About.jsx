@@ -5,7 +5,7 @@ const About = () => {
 	return (
 		<div id="about" className="about">
 			<SectionHeading tag="About us" heading="Our company" />
-			<div className="content">
+			<div className="content" data-aos="fade-up" data-aos-delay="200">
 				<div className="box"></div>
 				<p>
 					Ace Bridge Ltd is a limited liability Company incorporated under the

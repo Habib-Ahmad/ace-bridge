@@ -10,7 +10,7 @@ const ContactUs = () => {
 
 	return (
 		<div className="contact-us">
-			<div className="form-wrapper">
+			<div className="form-wrapper" data-aos="fade-up" data-aos-delay="200">
 				<h3>Get in Touch</h3>
 				<p>
 					In case of any inquiries or questions you can fill out the form below
@@ -19,7 +19,7 @@ const ContactUs = () => {
 				<ContactForm />
 			</div>
 
-			<div className="details">
+			<div className="details" data-aos="fade-up" data-aos-delay="300">
 				<h3>Lets get your dream house</h3>
 				<p>
 					Give us a call or drop by anytime, we endevour to answear all

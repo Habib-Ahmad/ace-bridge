@@ -44,7 +44,7 @@ const Header = () => {
 					</Button>
 				</div>
 
-				<div className="arrow-wrapper">
+				<div data-aos="fade-up" className="arrow-wrapper">
 					<div onClick={handlePrev}>
 						<img src={previous} alt="previous" />
 					</div>

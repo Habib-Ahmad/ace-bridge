@@ -33,14 +33,6 @@ const Projects = () => {
 		getProjects();
 	}, []);
 
-	if (!projectList.length) {
-		return (
-			<div className="projects loader">
-				<CircularProgress size={60} />
-			</div>
-		);
-	}
-
 	return (
 		<div className="projects admin">
 			<div className="heading">
@@ -59,11 +51,17 @@ const Projects = () => {
 				</Button>
 			</div>
 
-			<div className="list">
-				{projectList.map((project) => (
-					<ProjectCard key={project.id} {...project} />
-				))}
-			</div>
+			{!projectList.length ? (
+				<div className="projects loader">
+					<CircularProgress size={60} />
+				</div>
+			) : (
+				<div className="list">
+					{projectList.map((project) => (
+						<ProjectCard key={project.id} {...project} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

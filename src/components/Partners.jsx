@@ -10,7 +10,7 @@ const Partners = () => {
 		<div className="partners">
 			<SectionHeading tag="Partners" heading="Our Partners" />
 
-			<div className="logo-wrapper">
+			<div className="logo-wrapper" data-aos="fade">
 				<img src={polaris} alt="polaris" />
 				<img src={braverock} alt="braverock" />
 				<img src={algorizmi} alt="algorizmi" />

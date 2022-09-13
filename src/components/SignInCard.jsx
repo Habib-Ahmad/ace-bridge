@@ -29,7 +29,7 @@ const SignInCard = () => {
 	};
 
 	return (
-		<div className="auth-card">
+		<div className="auth-card" data-aos="fade-up">
 			<img src={avatar} alt="" />
 
 			<Formik

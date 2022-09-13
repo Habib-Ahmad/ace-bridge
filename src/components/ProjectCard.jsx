@@ -17,7 +17,7 @@ const ProjectCard = (props) => {
 	};
 
 	return (
-		<div className="project-card">
+		<div className="project-card" data-aos="fade-up">
 			<img src={thumbnail} alt="" className="image" />
 
 			<div className="content">

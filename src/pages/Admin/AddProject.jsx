@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import uuid from 'react-uuid';
+import { Button, CircularProgress } from '@mui/material';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import { Button, CircularProgress } from '@mui/material';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
 import ProjectDetails from '../../components/AddProject/ProjectDetails';
 import PaymentPlans from '../../components/AddProject/PaymentPlans';
 import Thumbnail from '../../components/AddProject/Thumbnail';
@@ -13,8 +12,9 @@ import CoverImage from '../../components/AddProject/CoverImage';
 import FloorPlan from '../../components/AddProject/FloorPlan';
 import Availability from '../../components/AddProject/Availability';
 import { uploadImage } from '../../components/AddProject/functions';
-import back from '../../assets/back-btn.svg';
 import ProgressImages from '../../components/AddProject/ProgressImages';
+import validationSchema from '../../components/AddProject/validationSchema';
+import back from '../../assets/back-btn.svg';
 
 const AddProject = () => {
 	const [state, setState] = useState({
@@ -33,7 +33,7 @@ const AddProject = () => {
 		availableUnits: '',
 	});
 	const [errorMsg, setErrorMsg] = useState('');
-	const [delayText, setDelayText] = useState('hello world');
+	const [delayText, setDelayText] = useState('');
 
 	const [thumbnailPreview, setThumbnailPreview] = useState();
 	const [coverImagePreview, setCoverImagePreview] = useState();
@@ -139,21 +139,7 @@ const AddProject = () => {
 			<Formik
 				initialValues={state}
 				enableReinitialize={true}
-				validationSchema={Yup.object().shape({
-					title: Yup.string().trim().required('This field is required'),
-					category: Yup.string().trim().required('This field is required'),
-					type: Yup.string().trim().required('This field is required'),
-					status: Yup.string().trim().required('This field is required'),
-					description: Yup.string().trim().required('This field is required'),
-					completionYear: Yup.number().required('This field is required'),
-					livingRooms: Yup.number().required('This field is required'),
-					bedRooms: Yup.number().required('This field is required'),
-					location: Yup.string().trim().required('This field is required'),
-					finishedPrice: Yup.number().required('This field is required'),
-					unFinishedPrice: Yup.number().required('This field is required'),
-					totalUnits: Yup.number().required('This field is required'),
-					availableUnits: Yup.number().required('This field is required'),
-				})}
+				validationSchema={validationSchema}
 				onSubmit={(values) => handleSubmit(values)}
 			>
 				{({
@@ -164,7 +150,7 @@ const AddProject = () => {
 					errors,
 					isSubmitting,
 				}) => (
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} data-aos="fade-up">
 						<div className="heading-wrapper">
 							<div onClick={() => navigate(-1)}>
 								<img src={back} alt="" />

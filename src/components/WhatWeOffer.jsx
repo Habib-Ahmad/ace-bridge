@@ -9,7 +9,7 @@ const WhatWeOffer = () => {
 			<SectionHeading tag="Services" heading="What we offer" />
 
 			<div className="card-wrapper">
-				<div className="card card1">
+				<div className="card card1" data-aos="fade-up">
 					<img src={purchase} alt="" className="icon" />
 					<h3>Direct Purchase (Off Plan)</h3>
 					<p className="text">
@@ -18,7 +18,7 @@ const WhatWeOffer = () => {
 					</p>
 				</div>
 
-				<div className="card card2">
+				<div className="card card2" data-aos="fade-up" data-aos-delay="100">
 					<img src={coFinancing} alt="" className="icon" />
 					<h3>Project Co-financing</h3>
 					<p className="text">
@@ -28,7 +28,7 @@ const WhatWeOffer = () => {
 					</p>
 				</div>
 
-				<div className="card card3">
+				<div className="card card3" data-aos="fade-up" data-aos-delay="200">
 					<img src={realEstate} alt="" className="icon" />
 					<h3>Real Estate Partnerships</h3>
 					<p className="text">
