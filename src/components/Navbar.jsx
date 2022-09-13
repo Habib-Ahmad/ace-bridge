@@ -1,15 +1,36 @@
 import { useEffect, useState } from 'react';
-import { Button, IconButton, SwipeableDrawer } from '@mui/material';
 import { useNavigate } from 'react-router';
+import { Button, IconButton, SwipeableDrawer } from '@mui/material';
 import logoWhite from '../assets/logo-white.svg';
 import logo from '../assets/logo.svg';
 import menuWhite from '../assets/header/menu-white.svg';
 import menu from '../assets/header/menu.svg';
+import { useAuthContext } from '../context/authContext';
 
 const Navbar = ({ transparent }) => {
+	const [loggedIn, setLoggedIn] = useState(false);
 	const [displayDrawer, setDisplayDrawer] = useState(false);
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const navigate = useNavigate();
+
+	const {
+		state: { token },
+		dispatch,
+	} = useAuthContext();
+
+	const logout = () => {
+		dispatch({ type: 'REMOVE_TOKEN' });
+		localStorage.removeItem('ace-bridge-accessToken');
+		navigate('/');
+	};
+
+	useEffect(() => {
+		if (token) {
+			setLoggedIn(true);
+		} else {
+			setLoggedIn(false);
+		}
+	}, [token]);
 
 	const handleScroll = () => {
 		const position = window.pageYOffset;
@@ -56,6 +77,11 @@ const Navbar = ({ transparent }) => {
 						{link.name}
 					</Button>
 				))}
+				{loggedIn && (
+					<Button variant="text" onClick={() => logout()}>
+						Logout
+					</Button>
+				)}
 			</nav>
 
 			<div className="drawer-wrapper">
@@ -83,6 +109,11 @@ const Navbar = ({ transparent }) => {
 								{link.name}
 							</Button>
 						))}
+						{loggedIn && (
+							<Button variant="text" onClick={() => logout()}>
+								Logout
+							</Button>
+						)}
 					</nav>
 				</SwipeableDrawer>
 			</div>

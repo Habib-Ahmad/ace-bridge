@@ -11,13 +11,6 @@ const Projects = () => {
 
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		const token = localStorage.getItem('ace-bridge-accessToken');
-		if (!token) {
-			navigate('/admin');
-		}
-	}, [navigate]);
-
 	const getProjects = () => {
 		const ref = collection(db, 'projects');
 		onSnapshot(ref, (snap) => {
