@@ -1,16 +1,23 @@
+import { CircularProgress } from '@mui/material';
 import ProjectCard from './ProjectCard';
 import SectionHeading from './SectionHeading';
 
-const Projects = () => {
+const Projects = ({ projects }) => {
 	return (
 		<div id="projects" className="projects-component">
 			<SectionHeading tag="Projects" heading="Our Latest Projects" />
 
-			<div className="project-wrapper">
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-			</div>
+			{!projects || !projects.length ? (
+				<div className="loader">
+					<CircularProgress />
+				</div>
+			) : (
+				<div className="project-wrapper">
+					{projects.reverse().map((project) => (
+						<ProjectCard key={project.id} {...project} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

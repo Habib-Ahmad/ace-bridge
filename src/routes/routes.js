@@ -5,6 +5,7 @@ import ContactUs from '../pages/ContactUs';
 import Admin from '../pages/Admin';
 import AdminProjects from '../pages/Admin/Projects';
 import AddProject from '../pages/Admin/AddProject';
+import NotFound from '../pages/NotFound';
 
 export const appRoutes = [
 	{
@@ -38,5 +39,9 @@ export const appRoutes = [
 	{
 		to: '/admin/add-project',
 		element: <AddProject />,
+	},
+	{
+		to: '*',
+		element: <NotFound />,
 	},
 ];

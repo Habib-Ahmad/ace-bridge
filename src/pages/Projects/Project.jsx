@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { Button, Tab, Tabs } from '@mui/material';
 import Navbar from '../../components/Navbar';
 import SectionHeading from '../../components/SectionHeading';
 import PaymentCard from '../../components/PaymentCard';
-import LinearProgressWithLabel from '../../components/LinearProgressWithLabel';
 import TabPanel from '../../components/TabPanel';
 import facilities from '../../assets/facilities.png';
-import floorPlan from '../../assets/floor-plan.png';
-import progress from '../../assets/progress.png';
 import house from '../../assets/house.svg';
 import bed from '../../assets/bed.svg';
 import sofa from '../../assets/sofa.svg';
@@ -31,15 +28,17 @@ const Project = () => {
 		unFinishedPrice: '',
 		totalUnits: '',
 		availableUnits: '',
+		floorPlan: [],
+		progressImages: [],
 	});
+
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	const formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 	const date = new Date();
 	const year = date.getFullYear();
-	console.log(year);
-
-	const location = useLocation();
 
 	useEffect(() => {
 		setProject((prev) => {
@@ -140,52 +139,26 @@ const Project = () => {
 							<Tab label="Floor Plans" />
 							<Tab label="Progress Images" />
 							<Tab label="Progress Video" />
-							<Tab label="Progress Overview" />
 							<Tab label="Home Availability" />
 						</Tabs>
 					</div>
 
 					<TabPanel value={value} index={0}>
 						<div className="img-grid">
-							<img src={floorPlan} alt="" />
-							<img src={floorPlan} alt="" />
-							<img src={floorPlan} alt="" />
-							<img src={floorPlan} alt="" />
-							<img src={floorPlan} alt="" />
-							<img src={floorPlan} alt="" />
+							{project.floorPlan.map((img, index) => (
+								<img key={index} src={img} alt="" />
+							))}
 						</div>
 					</TabPanel>
 					<TabPanel value={value} index={1}>
 						<div className="img-grid">
-							<img src={progress} alt="" />
-							<img src={progress} alt="" />
-							<img src={progress} alt="" />
-							<img src={progress} alt="" />
-							<img src={progress} alt="" />
-							<img src={progress} alt="" />
+							{project.progressImages.map((img, index) => (
+								<img key={index} src={img} alt="" />
+							))}
 						</div>
 					</TabPanel>
 					<TabPanel value={value} index={2}></TabPanel>
 					<TabPanel value={value} index={3}>
-						<div className="progress-bars">
-							<LinearProgressWithLabel
-								variant="determinate"
-								value={75}
-								color="primary"
-							/>
-							<LinearProgressWithLabel
-								variant="determinate"
-								value={65}
-								color="secondary"
-							/>
-							<LinearProgressWithLabel
-								variant="determinate"
-								value={55}
-								color="error"
-							/>
-						</div>
-					</TabPanel>
-					<TabPanel value={value} index={4}>
 						<div className="card-wrapper">
 							<div className="availability">
 								<span></span>
@@ -200,7 +173,12 @@ const Project = () => {
 								<p className="total">Total Available Units</p>
 								<p className="amount">{project.availableUnits}</p>
 								{project.availableUnits > 0 && (
-									<Button variant="contained">Buy now</Button>
+									<Button
+										variant="contained"
+										onClick={() => navigate('/contact-us')}
+									>
+										Buy now
+									</Button>
 								)}
 							</div>
 						</div>

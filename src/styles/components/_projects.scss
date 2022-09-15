@@ -7,8 +7,33 @@
 	clip-path: inset(0 -100vmax);
 
 	.project-wrapper {
-		@include flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 15px;
+		row-gap: 40px;
+
+		@include responsive(xl) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include responsive(lg) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include responsive(md) {
+			grid-template-columns: 100%;
+		}
+
+		.project-card {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.loader {
 		width: 100%;
+		height: 30vh;
+		display: grid;
+		place-items: center;
 	}
 }

@@ -9,15 +9,16 @@
 
 	.list {
 		display: grid;
-		grid-template-columns: repeat(4, 25%);
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 15px;
+		row-gap: 40px;
 
 		@include responsive(xl) {
-			grid-template-columns: repeat(3, 33%);
-			row-gap: 40px;
+			grid-template-columns: repeat(3, 1fr);
 		}
 
 		@include responsive(lg) {
-			grid-template-columns: repeat(2, 50%);
+			grid-template-columns: repeat(2, 1fr);
 		}
 
 		@include responsive(md) {
@@ -35,18 +36,8 @@
 			@include flex;
 			margin-bottom: 40px;
 
-			.btn-wrapper {
-				@include flex;
-				align-items: center;
-
-				& > div {
-					cursor: pointer;
-				}
-
-				h1 {
-					margin-left: 20px;
-					margin-bottom: 0;
-				}
+			h1 {
+				margin-bottom: 0;
 			}
 		}
 	}

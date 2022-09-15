@@ -4,7 +4,6 @@ import { Button, CircularProgress } from '@mui/material';
 import { db } from '../../firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
 import ProjectCard from '../../components/ProjectCard';
-import back from '../../assets/back-btn.svg';
 
 const Projects = () => {
 	const [projectList, setprojectList] = useState([]);
@@ -29,12 +28,7 @@ const Projects = () => {
 	return (
 		<div className="projects admin">
 			<div className="heading">
-				<div className="btn-wrapper">
-					<div onClick={() => navigate(-1)}>
-						<img src={back} alt="" />
-					</div>
-					<h1>Projects</h1>
-				</div>
+				<h1>Projects</h1>
 				<Button
 					onClick={() => navigate('/admin/add-project')}
 					variant="contained"

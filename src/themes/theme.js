@@ -30,6 +30,11 @@ export const theme = createTheme({
 						backgroundColor: 'transparent',
 					},
 				},
+
+				contained: {
+					fontWeight: 500,
+					letterSpacing: '0.8px',
+				},
 			},
 		},
 

@@ -6,12 +6,10 @@ import * as Yup from 'yup';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import avatar from '../assets/avatar.svg';
-import { useAuthContext } from '../context/authContext';
 
 const SignInCard = () => {
 	const [errorMsg, setErrorMsg] = useState('');
 	const navigate = useNavigate();
-	const { dispatch } = useAuthContext();
 
 	const handleSubmit = ({ email, password }, setSubmitting) => {
 		setSubmitting(true);
@@ -21,7 +19,6 @@ const SignInCard = () => {
 			.then((userCredential) => {
 				setSubmitting(false);
 				const token = userCredential.user.accessToken;
-				dispatch({ type: 'ADD_TOKEN', payload: token });
 				localStorage.setItem('ace-bridge-accessToken', token);
 				navigate('projects');
 			})

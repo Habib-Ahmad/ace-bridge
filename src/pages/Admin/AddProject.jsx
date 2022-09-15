@@ -1,8 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import uuid from 'react-uuid';
-import { Button, CircularProgress } from '@mui/material';
-import { doc, setDoc } from 'firebase/firestore';
+import {
+	Button,
+	CircularProgress,
+	Dialog,
+	DialogActions,
+	DialogContent,
+	DialogContentText,
+	DialogTitle,
+	Slide,
+} from '@mui/material';
+import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { Formik } from 'formik';
 import ProjectDetails from '../../components/AddProject/ProjectDetails';
@@ -18,6 +27,7 @@ import back from '../../assets/back-btn.svg';
 
 const AddProject = () => {
 	const [state, setState] = useState({
+		id: '',
 		title: '',
 		category: '',
 		location: '',
@@ -34,6 +44,7 @@ const AddProject = () => {
 	});
 	const [errorMsg, setErrorMsg] = useState('');
 	const [delayText, setDelayText] = useState('');
+	const [open, setOpen] = useState(false);
 
 	const [thumbnailPreview, setThumbnailPreview] = useState();
 	const [coverImagePreview, setCoverImagePreview] = useState();
@@ -80,6 +91,19 @@ const AddProject = () => {
 			return prev;
 		});
 	}, [location]);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	const handleDelete = async () => {
+		await deleteDoc(doc(db, `projects/${state.id}`));
+		navigate('/admin/projects');
+	};
 
 	const handleSubmit = async (values) => {
 		setErrorMsg('');
@@ -151,11 +175,43 @@ const AddProject = () => {
 					isSubmitting,
 				}) => (
 					<form onSubmit={handleSubmit} data-aos="fade-up">
-						<div className="heading-wrapper">
-							<div onClick={() => navigate(-1)}>
-								<img src={back} alt="" />
+						<div className="header">
+							<div className="heading-wrapper">
+								<div onClick={() => navigate(-1)}>
+									<img src={back} alt="" />
+								</div>
+								<h1>{state.id ? 'Edit' : 'Add'} Project</h1>
 							</div>
-							<h1>Add Project</h1>
+
+							{state.id && (
+								<div>
+									<Button variant="contained" onClick={handleClickOpen}>
+										Delete
+									</Button>
+									<Dialog
+										open={open}
+										TransitionComponent={Transition}
+										keepMounted
+										onClose={handleClose}
+										aria-describedby="alert-dialog-slide-description"
+									>
+										<DialogTitle>{'Confirm'}</DialogTitle>
+										<DialogContent>
+											<DialogContentText id="alert-dialog-slide-description">
+												Are you sure you want to delete this project?
+											</DialogContentText>
+										</DialogContent>
+										<DialogActions>
+											<Button sx={{ color: '#0650a0' }} onClick={handleClose}>
+												Cancel
+											</Button>
+											<Button sx={{ color: '#0650a0' }} onClick={handleDelete}>
+												Delete
+											</Button>
+										</DialogActions>
+									</Dialog>
+								</div>
+							)}
 						</div>
 
 						<ProjectDetails
@@ -222,3 +278,7 @@ const AddProject = () => {
 };
 
 export default AddProject;
+
+const Transition = forwardRef(function Transition(props, ref) {
+	return <Slide direction="up" ref={ref} {...props} />;
+});

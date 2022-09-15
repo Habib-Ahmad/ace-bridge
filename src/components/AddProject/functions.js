@@ -1,4 +1,5 @@
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import uuid from 'react-uuid';
 import { storage } from '../../firebase';
 
 export const previewFile = (file, setPreviewState) => {
@@ -19,7 +20,8 @@ export const deletePreview = (setPreviewState, setFileState) => {
 };
 
 export const uploadImage = async (file, folder) => {
-	const imageRef = ref(storage, `/${folder}/${file.name}`);
+	const id = uuid();
+	const imageRef = ref(storage, `/${folder}/${id}`);
 	const uploadTask = uploadBytesResumable(imageRef, file);
 	return await uploadTask
 		.then((snapshot) => getDownloadURL(snapshot.ref))
