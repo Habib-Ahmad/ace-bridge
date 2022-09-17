@@ -1,11 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Button, CircularProgress, TextField } from '@mui/material';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
-	const handleSubmit = async (values) => {
-		console.log(values);
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+	const [success, setSuccess] = useState(true);
+
+	useEffect(() => {
+		setTimeout(() => setSuccess(false), 5000);
+	}, [success]);
+
+	const handleSubmit = (values, setSubmitting, resetForm) => {
+		setSubmitting(true);
+		emailjs
+			.send('service_cyfscx9', 'template_jyteidq', values, 'pJi64IHFE-CNe9YlB')
+			.then(
+				(result) => {
+					setSubmitting(false);
+					setSuccess(true);
+					resetForm();
+				},
+				(error) => {
+					console.log(error.text);
+					setSubmitting(false);
+				}
+			);
 	};
 
 	return (
@@ -24,7 +44,9 @@ const ContactForm = () => {
 						.email('E-mail is not valid'),
 					message: Yup.string().required('This field is required'),
 				})}
-				onSubmit={handleSubmit}
+				onSubmit={(values, { setSubmitting, resetForm }) =>
+					handleSubmit(values, setSubmitting, resetForm)
+				}
 			>
 				{({
 					handleSubmit,
@@ -89,6 +111,7 @@ const ContactForm = () => {
 								'Submit'
 							)}
 						</Button>
+						{success && <p className="success">Email sent successfully!</p>}
 					</form>
 				)}
 			</Formik>

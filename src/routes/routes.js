@@ -33,10 +33,6 @@ export const appRoutes = [
 		element: <AdminProjects />,
 	},
 	{
-		to: '/admin/projects/:id',
-		element: <div>Hello world</div>,
-	},
-	{
 		to: '/admin/add-project',
 		element: <AddProject />,
 	},

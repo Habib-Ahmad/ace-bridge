@@ -24,4 +24,11 @@
 			}
 		}
 	}
+
+	.success {
+		margin-top: 10px;
+		font-size: 0.8rem;
+		color: $color-green;
+		font-style: italic;
+	}
 }

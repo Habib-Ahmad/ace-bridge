@@ -18,7 +18,7 @@ const App = () => {
 	const path = useLocation().pathname;
 	const id = path.split('/')[2];
 
-	if (path === '/' || path === '/admin' || path === `/projects/${id}`) {
+	if (path === '/' || path === `/projects/${id}`) {
 		return renderRoutes();
 	}
 

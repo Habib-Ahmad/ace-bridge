@@ -130,4 +130,8 @@ const links = [
 		name: 'Contact',
 		to: '/contact-us',
 	},
+	{
+		name: 'Admin',
+		to: '/admin',
+	},
 ];
