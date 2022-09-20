@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
-	const [success, setSuccess] = useState(true);
+	const [success, setSuccess] = useState(false);
 
 	useEffect(() => {
 		setTimeout(() => setSuccess(false), 5000);
