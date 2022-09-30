@@ -133,40 +133,12 @@
 		}
 	}
 
-	.progress {
+	.availablility-wrapper {
 		padding: 40px 0;
 		background-color: $color-grey;
 		box-shadow: 0 0 0 100vmax $color-grey;
 		clip-path: inset(0 -100vmax);
 		text-align: center;
-
-		.tab-wrapper {
-			.MuiTabs-flexContainer {
-				justify-content: center;
-			}
-		}
-
-		.img-grid {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			@include responsive(md) {
-				grid-template-columns: repeat(2, 1fr);
-			}
-			@include responsive(sm) {
-				grid-template-columns: repeat(1, 1fr);
-			}
-
-			img {
-				width: 95%;
-				height: 500px;
-				object-fit: contain;
-				margin: 0 auto 40px;
-			}
-		}
-
-		.progress-bars > .progress-with-label {
-			margin-bottom: 40px;
-		}
 
 		.card-wrapper {
 			@include flex;
@@ -174,7 +146,6 @@
 			@include responsive(md) {
 				flex-direction: column;
 			}
-
 			.availability {
 				position: relative;
 				background-color: $color-white;
@@ -214,6 +185,42 @@
 					margin-bottom: 40px;
 				}
 			}
+		}
+	}
+
+	.progress {
+		padding: 40px 0;
+		background-color: $color-grey;
+		box-shadow: 0 0 0 100vmax $color-grey;
+		clip-path: inset(0 -100vmax);
+		text-align: center;
+
+		.tab-wrapper {
+			.MuiTabs-flexContainer {
+				justify-content: center;
+			}
+		}
+
+		.img-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			@include responsive(md) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@include responsive(sm) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+
+			img {
+				width: 95%;
+				height: 500px;
+				object-fit: contain;
+				margin: 0 auto 40px;
+			}
+		}
+
+		.progress-bars > .progress-with-label {
+			margin-bottom: 40px;
 		}
 	}
 }

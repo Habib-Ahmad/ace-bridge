@@ -25,7 +25,7 @@ const Header = () => {
 				<h1>Creating urban lifestyle build to last</h1>
 				<img src={underline} alt="" />
 				<p>The best place to purchase properties and buidling materials</p>
-				<Button variant="contained" href="#projects">
+				<Button variant="contained" href="projects">
 					Get Started
 				</Button>
 			</div>

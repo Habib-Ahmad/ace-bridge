@@ -9,7 +9,7 @@ import phone from '../assets/phone.svg';
 
 const ContactUs = () => {
 	const location = 'https://maps.app.goo.gl/tNckdmHtqot7jT197';
-	const email = 'acebridgeltd@gmail.com';
+	const email = 'info@acebridge.ng';
 	const mobile = '0909 943 4444';
 
 	return (

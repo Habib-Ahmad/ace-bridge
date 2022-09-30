@@ -125,65 +125,71 @@ const Project = () => {
 					</div>
 				</div>
 
-				<div className="progress">
-					<SectionHeading tag="Progress" heading="Our Site Progress" />
+				<div className="availablility-wrapper">
+					<SectionHeading tag="Availablitity" heading="Home Availablitity" />
 
-					<div className="tab-wrapper">
-						<Tabs
-							value={value}
-							onChange={handleChange}
-							variant="scrollable"
-							scrollButtons="auto"
-							textColor="primary"
-						>
-							<Tab label="Floor Plans" />
-							<Tab label="Progress Images" />
-							<Tab label="Progress Video" />
-							<Tab label="Home Availability" />
-						</Tabs>
+					<div className="card-wrapper">
+						<div className="availability">
+							<span></span>
+							<p className="heading">Sold and Available</p>
+							<p className="total">Total Units</p>
+							<p className="amount">{project.totalUnits}</p>
+						</div>
+						<div style={{ width: '60px', height: '60px' }} />
+						<div className="availability">
+							<span></span>
+							<p className="heading">Sold and Available</p>
+							<p className="total">Total Available Units</p>
+							<p className="amount">{project.availableUnits}</p>
+							{project.availableUnits > 0 && (
+								<Button
+									variant="contained"
+									onClick={() => navigate('/contact-us')}
+								>
+									Buy now
+								</Button>
+							)}
+						</div>
 					</div>
-
-					<TabPanel value={value} index={0}>
-						<div className="img-grid">
-							{project.floorPlan.map((img, index) => (
-								<img key={index} src={img} alt="" />
-							))}
-						</div>
-					</TabPanel>
-					<TabPanel value={value} index={1}>
-						<div className="img-grid">
-							{project.progressImages.map((img, index) => (
-								<img key={index} src={img} alt="" />
-							))}
-						</div>
-					</TabPanel>
-					<TabPanel value={value} index={2}></TabPanel>
-					<TabPanel value={value} index={3}>
-						<div className="card-wrapper">
-							<div className="availability">
-								<span></span>
-								<p className="heading">Sold and Available</p>
-								<p className="total">Total Units</p>
-								<p className="amount">{project.totalUnits}</p>
-							</div>
-							<div style={{ width: '60px', height: '60px' }} />
-							<div className="availability">
-								<span></span>
-								<p className="heading">Sold and Available</p>
-								<p className="total">Total Available Units</p>
-								<p className="amount">{project.availableUnits}</p>
-								{project.availableUnits > 0 && (
-									<Button
-										variant="contained"
-										onClick={() => navigate('/contact-us')}
-									>
-										Buy now
-									</Button>
-								)}
-							</div>
-						</div>
-					</TabPanel>
 				</div>
+
+				{project.floorPlan.length || project.progressImages.length ? (
+					<div className="progress">
+						<SectionHeading tag="Progress" heading="Our Site Progress" />
+
+						<div className="tab-wrapper">
+							<Tabs
+								value={value}
+								onChange={handleChange}
+								variant="scrollable"
+								scrollButtons="auto"
+								textColor="primary"
+							>
+								<Tab label="Floor Plans" />
+								<Tab label="Progress Images" />
+								<Tab label="Progress Video" />
+							</Tabs>
+						</div>
+
+						<TabPanel value={value} index={0}>
+							<div className="img-grid">
+								{project.floorPlan.map((img, index) => (
+									<img key={index} src={img} alt="" />
+								))}
+							</div>
+						</TabPanel>
+						<TabPanel value={value} index={1}>
+							<div className="img-grid">
+								{project.progressImages.map((img, index) => (
+									<img key={index} src={img} alt="" />
+								))}
+							</div>
+						</TabPanel>
+						<TabPanel value={value} index={2}></TabPanel>
+					</div>
+				) : (
+					<></>
+				)}
 			</div>
 		</div>
 	);
