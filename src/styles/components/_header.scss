@@ -2,8 +2,9 @@
 
 header {
 	height: 100vh;
-	background: no-repeat bottom fixed;
+	background: #01071bd5 no-repeat bottom fixed;
 	background-size: cover;
+	background-blend-mode: multiply;
 	color: $color-white;
 	padding-top: 200px;
 	transition: all 500ms ease-in;
@@ -12,8 +13,9 @@ header {
 	}
 
 	.heading-wrapper {
-		@include flex;
-		margin: 0 10vw;
+		display: block;
+		margin: 5% auto 0;
+		width: fit-content;
 
 		@include responsive(md) {
 			margin: 20% 10%;
@@ -22,45 +24,37 @@ header {
 			}
 		}
 
-		h1 {
+		img {
 			margin-bottom: 20px;
 		}
 
-		.location {
+		p {
 			font-size: 1.25rem;
 			font-weight: 500;
+			text-align: center;
 			margin-bottom: 60px;
 			color: $color-white;
 		}
 
-		button {
-			p {
-				text-transform: capitalize;
-				font-size: 1rem;
-				font-weight: 500;
-				color: $color-white;
-			}
-
-			img {
-				margin-left: 15px;
-			}
+		button,
+		a {
+			display: flex;
+			margin: auto;
+			width: 200px;
+			height: 60px;
+			text-transform: capitalize;
+			font-size: 1rem;
+			font-weight: 500;
+			color: $color-white;
 		}
 	}
+}
 
-	.arrow-wrapper {
-		display: flex;
-		flex-direction: column;
-		@include responsive(md) {
-			display: none;
-		}
-
-		div {
-			margin: 20px 0;
-			cursor: pointer;
-		}
-
-		img {
-			opacity: 0.7;
-		}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

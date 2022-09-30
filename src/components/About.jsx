@@ -17,7 +17,7 @@ const About = () => {
 				</p>
 				<div className="img-wrapper">
 					<img
-						src="https://images.adsttc.com/media/images/5b96/a01b/f197/ccb0/1700/004d/newsletter/-_Featured_Image.jpg?1536598038"
+						src="https://res.cloudinary.com/drmksud79/image/upload/v1664532841/acebridge/5_b7mie4.jpg"
 						alt=""
 						className="img"
 					/>

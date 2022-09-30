@@ -1,58 +1,33 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
-import arrow from '../assets/header/btn-arrow.svg';
-import previous from '../assets/header/prev-arrow.svg';
-import next from '../assets/header/next-arrow.svg';
-import hero1 from '../assets/hero.png';
-import hero2 from '../assets/hero2.png';
+import BackgroundSlider from 'react-background-slider';
+import underline from '../assets/header/underline.svg';
+
+const Slider = BackgroundSlider['react-background-slider'].default;
 
 const Header = () => {
 	const [index, setIndex] = useState(0);
-	const navigate = useNavigate();
-	const project = projects[index];
 
-	const handlePrev = () =>
-		setIndex((prev) => {
-			const number = prev - 1;
-			if (number < 0) return MAX_INDEX;
-			return number;
-		});
-
-	const handleNext = () =>
-		setIndex((prev) => {
-			const number = prev + 1;
-			if (number > MAX_INDEX) return 0;
-			return number;
-		});
+	useEffect(() => {
+		setTimeout(() => {
+			setIndex((prev) => {
+				const number = prev + 1;
+				if (number > 3) return 0;
+				return number;
+			});
+		}, 5000);
+	}, [index]);
 
 	return (
-		<header
-			style={{
-				backgroundImage: `url(${project.img})`,
-			}}
-		>
+		<header>
+			<Slider images={images} duration={5} transition={0.5} />
 			<div className="heading-wrapper">
-				<div>
-					<h1>AceBridge Redsidence - {project.title}</h1>
-					<p className="location">{project.location}</p>
-					<Button
-						variant="contained"
-						onClick={() => navigate(`/${project.to}`)}
-					>
-						<p>View project</p> <img src={arrow} alt="" />
-					</Button>
-				</div>
-
-				<div data-aos="fade-up" className="arrow-wrapper">
-					<div onClick={handlePrev}>
-						<img src={previous} alt="previous" />
-					</div>
-
-					<div onClick={handleNext}>
-						<img src={next} alt="next" />
-					</div>
-				</div>
+				<h1>Creating urban lifestyle build to last</h1>
+				<img src={underline} alt="" />
+				<p>The best place to purchase properties and buidling materials</p>
+				<Button variant="contained" href="#projects">
+					Get Started
+				</Button>
 			</div>
 		</header>
 	);
@@ -60,21 +35,8 @@ const Header = () => {
 
 export default Header;
 
-const projects = [
-	{
-		id: 1,
-		img: hero1,
-		title: 'Khairiyya',
-		location: 'Jahi',
-		to: '',
-	},
-	{
-		id: 2,
-		img: hero2,
-		title: 'Bolori',
-		location: 'Asokoro',
-		to: '',
-	},
+const images = [
+	'https://res.cloudinary.com/drmksud79/image/upload/v1664532842/acebridge/3_chtw1s.jpg',
+	'https://res.cloudinary.com/drmksud79/image/upload/v1664532841/acebridge/6_ublkic.jpg',
+	'https://res.cloudinary.com/drmksud79/image/upload/v1664532841/acebridge/4_zofmhs.jpg',
 ];
-
-const MAX_INDEX = projects.length - 1;

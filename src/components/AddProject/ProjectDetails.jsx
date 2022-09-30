@@ -90,7 +90,6 @@ const ProjectDetails = ({ touched, errors, values, handleChange }) => {
 				<TextField
 					label="Bed Rooms"
 					name="bedRooms"
-					type="number"
 					fullWidth
 					helperText={touched.bedRooms ? errors.bedRooms : ''}
 					error={touched.bedRooms && Boolean(errors.bedRooms)}

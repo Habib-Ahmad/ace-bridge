@@ -2,7 +2,7 @@ const Collage = () => {
 	return (
 		<div className="collage">
 			<img
-				src="https://d1swvgohc7oxrg.cloudfront.net/filer_public/92/ba/92ba69a4-690c-480e-a49b-50e4574cd871/house_render.jpg"
+				src="https://firebasestorage.googleapis.com/v0/b/ace-bridge.appspot.com/o/header%2FP155_v2.jpg?alt=media&token=f135ff18-f1ae-4cfb-a348-ddf2aaea5b73"
 				alt=""
 			/>
 			<div></div>

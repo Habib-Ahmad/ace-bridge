@@ -31,6 +31,12 @@ export const theme = createTheme({
 					},
 				},
 
+				textSizeLarge: {
+					fontSize: '1.1rem',
+					fontWeight: '600',
+					width: '120px',
+				},
+
 				contained: {
 					fontWeight: 500,
 					letterSpacing: '0.8px',

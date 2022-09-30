@@ -29,6 +29,14 @@ const Home = () => {
 		getProjects();
 	}, []);
 
+	const ids = [
+		'cfc48a-e3a5-5ffe-c13d-d4b63ccd1c0',
+		'185d8c7-ad20-fa84-a2d2-c3e0a8eab0c7',
+		'8808b06-ced5-815-680d-31018451678b',
+	];
+
+	const headerProjects = projects.filter((item) => ids.includes(item.id));
+
 	const sortedProjects = projects
 		.sort((a, b) => (a.completedYear > b.completedYear ? 1 : -1))
 		.slice(-3);
@@ -36,7 +44,7 @@ const Home = () => {
 	return (
 		<>
 			<Navbar transparent />
-			<Header />
+			<Header projects={headerProjects} />
 
 			<div className="content-wrapper">
 				<About />

@@ -74,16 +74,16 @@ const Project = () => {
 					</div>
 				</div>
 				<div className="spec-wrapper color2">
-					<img src={bed} alt="" />
+					<img src={sofa} alt="" />
 					<div>
-						<p className="spec-name">Rooms</p>
+						<p className="spec-name">Living Rooms</p>
 						<div className="spec">{project.livingRooms} living rooms</div>
 					</div>
 				</div>
 				<div className="spec-wrapper color3">
-					<img src={sofa} alt="" />
+					<img src={bed} alt="" />
 					<div>
-						<p className="spec-name">Living rooms</p>
+						<p className="spec-name">Bedrooms</p>
 						<div className="spec">{project.bedRooms} bedrooms</div>
 					</div>
 				</div>

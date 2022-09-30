@@ -29,7 +29,7 @@ const AddProject = () => {
 	const [state, setState] = useState({
 		id: '',
 		title: '',
-		category: '',
+		category: 'Premium Residence',
 		location: '',
 		completionYear: '',
 		description: '',
@@ -128,7 +128,7 @@ const AddProject = () => {
 		}
 
 		if (coverImageFile) {
-			values.coverImage = await uploadImage(coverImageFile, 'thumbnail');
+			values.coverImage = await uploadImage(coverImageFile, 'cover');
 		}
 
 		values.floorPlan = await Promise.all(

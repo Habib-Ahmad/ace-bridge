@@ -65,6 +65,7 @@ const Navbar = ({ transparent }) => {
 				{links.map((link) => (
 					<Button
 						variant="text"
+						size="large"
 						key={link.name}
 						onClick={() => navigate(link.to)}
 					>
@@ -72,7 +73,7 @@ const Navbar = ({ transparent }) => {
 					</Button>
 				))}
 				{loggedIn && (
-					<Button variant="text" onClick={() => logout()}>
+					<Button variant="text" size="large" onClick={() => logout()}>
 						Logout
 					</Button>
 				)}
