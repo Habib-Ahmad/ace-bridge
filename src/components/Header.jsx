@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@mui/material';
+import { HashLink as Link } from 'react-router-hash-link';
 import BackgroundSlider from 'react-background-slider';
 import underline from '../assets/header/underline.svg';
 
@@ -24,10 +24,7 @@ const Header = () => {
 			<div className="heading-wrapper">
 				<h1>Creating urban lifestyle build to last</h1>
 				<img src={underline} alt="" />
-				<p>The best place to purchase properties and buidling materials</p>
-				<Button variant="contained" href="projects">
-					Get Started
-				</Button>
+				<Link to="#projects">Get Started</Link>
 			</div>
 		</header>
 	);
