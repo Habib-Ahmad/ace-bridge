@@ -9,7 +9,6 @@ const PaymentPlans = ({ touched, errors, values, handleChange }) => {
 				<TextField
 					label="Fully Finished Price"
 					name="finishedPrice"
-					type="number"
 					fullWidth
 					helperText={touched.finishedPrice ? errors.finishedPrice : ''}
 					error={touched.finishedPrice && Boolean(errors.finishedPrice)}
@@ -22,7 +21,6 @@ const PaymentPlans = ({ touched, errors, values, handleChange }) => {
 				<TextField
 					label="Semi Finished Price"
 					name="unFinishedPrice"
-					type="number"
 					fullWidth
 					helperText={touched.unFinishedPrice ? errors.unFinishedPrice : ''}
 					error={touched.unFinishedPrice && Boolean(errors.unFinishedPrice)}

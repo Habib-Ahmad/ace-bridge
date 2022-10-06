@@ -2,7 +2,7 @@
 
 .payment-card {
 	width: 400px;
-	height: 450px;
+	height: 480px;
 	background-color: $color-white;
 	text-align: center;
 	padding: 40px 20px;
@@ -23,21 +23,15 @@
 
 	.price {
 		color: $color-primary;
-		font-size: 4rem;
-		font-weight: 600;
-		margin-bottom: 20px;
-	}
-
-	.million {
-		color: $color-primary;
 		font-size: 3rem;
-		text-transform: uppercase;
 		font-weight: 600;
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 	}
 
 	.item-list {
+		padding: 0 20px;
 		margin-bottom: 20px;
+
 		.item {
 			color: $color-text-light;
 			font-size: 0.85rem;

@@ -109,10 +109,7 @@ const Project = () => {
 					<SectionHeading tag="Price" heading="Our payment plans" />
 
 					<div className="card-wrapper">
-						<PaymentCard
-							text="Fully Finished"
-							price={String(formatter.format(project.finishedPrice))}
-						/>
+						<PaymentCard text="Fully Finished" price={project.finishedPrice} />
 						<div style={{ width: '60px', height: '60px' }} />
 						<PaymentCard
 							text="Semi Finished"

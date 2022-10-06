@@ -8,7 +8,7 @@ const PaymentCard = ({ price, text }) => {
 		<div className="payment-card">
 			<div className="heading">Payment over project duration</div>
 			<p className="text">{text}</p>
-			<p className="price">₦{price}</p>
+			<p className="price">{price}</p>
 
 			<div className="item-list">
 				<p className="item">Make initial payment</p>
