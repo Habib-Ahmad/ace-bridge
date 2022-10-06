@@ -8,7 +8,7 @@ const validationSchema = Yup.object().shape({
 	description: Yup.string().trim().required('This field is required'),
 	completionYear: Yup.number().required('This field is required'),
 	livingRooms: Yup.number().required('This field is required'),
-	bedRooms: Yup.number().required('This field is required'),
+	bedRooms: Yup.string().required('This field is required'),
 	location: Yup.string().trim().required('This field is required'),
 	finishedPrice: Yup.number().required('This field is required'),
 	unFinishedPrice: Yup.number().required('This field is required'),

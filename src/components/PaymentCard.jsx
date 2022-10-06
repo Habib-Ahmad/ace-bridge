@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 
 const PaymentCard = ({ price, text }) => {
 	const navigate = useNavigate();
+	const bool = Number(price) === 0 ? false : true;
 	return (
 		<div className="payment-card">
 			<div className="heading">Payment over project duration</div>
@@ -16,13 +17,15 @@ const PaymentCard = ({ price, text }) => {
 				<p className="item">AceBridge welcome package</p>
 			</div>
 
-			<Button
-				onClick={() => navigate('/contact-us')}
-				variant="contained"
-				size="large"
-			>
-				Buy now
-			</Button>
+			{bool && (
+				<Button
+					onClick={() => navigate('/contact-us')}
+					variant="contained"
+					size="large"
+				>
+					Buy now
+				</Button>
+			)}
 		</div>
 	);
 };

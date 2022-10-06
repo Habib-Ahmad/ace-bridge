@@ -14,7 +14,7 @@ const WhatWeOffer = () => {
 					<h3>Direct Purchase (Off Plan)</h3>
 					<p className="text">
 						Investors can purchase from any of the acebrige estates at off plan
-						and make up 20% at completion
+						and make upto 20% profit at completion
 					</p>
 				</div>
 
@@ -23,8 +23,7 @@ const WhatWeOffer = () => {
 					<h3>Project Co-financing</h3>
 					<p className="text">
 						Acebridge gives the investor an opportunuty to co finance any of its
-						active projects and make returns of upto 35% investor can invest
-						from 3,000,000 Naira
+						active projects and make returns of upto 25% profit.
 					</p>
 				</div>
 

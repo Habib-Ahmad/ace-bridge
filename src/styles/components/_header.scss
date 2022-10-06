@@ -1,51 +1,55 @@
-@use "../abstracts" as *;
+@use '../abstracts' as *;
 
-header {
-  height: 100vh;
-  background: #000513cc no-repeat bottom fixed;
-  background-size: cover;
-  background-blend-mode: multiply;
-  color: $color-white;
-  padding-top: 200px;
-  transition: all 500ms ease-in;
-  @include responsive(md) {
-    padding-top: 70px;
-  }
+.header-component {
+	height: 100vh;
+	background: #000513cc no-repeat bottom fixed;
+	background-size: cover;
+	background-blend-mode: multiply;
+	color: $color-white;
+	padding-top: 200px;
+	transition: all 500ms ease-in;
+	@include responsive(md) {
+		padding-top: 70px;
+	}
 
-  .heading-wrapper {
-    display: block;
-    margin: 20px auto 0;
-    width: fit-content;
+	.heading-wrapper {
+		display: block;
+		margin: 20px auto 0;
+		width: fit-content;
 
-    @include responsive(md) {
-      margin: 20% 10%;
-      br {
-        display: none;
-      }
-    }
+		@include responsive(md) {
+			margin: 20% 10%;
+			br {
+				display: none;
+			}
+		}
 
-    img {
-      margin-bottom: 80px;
-    }
+		h1 {
+			text-align: center;
+		}
 
-    button,
-    a {
-      display: grid;
-      margin: auto;
-      place-items: center;
-      width: 200px;
-      height: 60px;
-      text-transform: capitalize;
-      font-size: 1rem;
-      font-weight: 500;
-      color: $color-white;
-      border: 1px solid $color-white;
-      border-radius: 5px;
-      text-decoration: none;
+		img {
+			margin-bottom: 80px;
+		}
 
-      &:hover {
-        background-color: #ffffff0a;
-      }
-    }
-  }
+		button,
+		a {
+			display: grid;
+			margin: auto;
+			place-items: center;
+			width: 200px;
+			height: 60px;
+			text-transform: capitalize;
+			font-size: 1rem;
+			font-weight: 500;
+			color: $color-white;
+			border: 1px solid $color-white;
+			border-radius: 5px;
+			text-decoration: none;
+
+			&:hover {
+				background-color: #ffffff0a;
+			}
+		}
+	}
 }

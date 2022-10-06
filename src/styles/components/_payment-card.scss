@@ -2,10 +2,9 @@
 
 .payment-card {
 	width: 400px;
+	height: 450px;
 	background-color: $color-white;
-	display: grid;
-	place-items: center;
-	text-align: left;
+	text-align: center;
 	padding: 40px 20px;
 
 	.heading {
@@ -43,6 +42,7 @@
 			color: $color-text-light;
 			font-size: 0.85rem;
 			margin-bottom: 10px;
+			text-align: left;
 		}
 	}
 }

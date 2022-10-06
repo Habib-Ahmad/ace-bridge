@@ -19,10 +19,10 @@ const Header = () => {
 	}, [index]);
 
 	return (
-		<header>
+		<header className="header-component">
 			<Slider images={images} duration={5} transition={0.5} />
 			<div className="heading-wrapper">
-				<h1>Creating urban lifestyle build to last</h1>
+				<h1>Creating Urban Lifestyle Build to Last...</h1>
 				<img src={underline} alt="" />
 				<Link to="#projects">Get Started</Link>
 			</div>

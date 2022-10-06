@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar';
 import SectionHeading from '../../components/SectionHeading';
 import PaymentCard from '../../components/PaymentCard';
 import TabPanel from '../../components/TabPanel';
+import back from '../../assets/back-btn-white.svg';
 import facilities from '../../assets/facilities.png';
 import house from '../../assets/house.svg';
 import bed from '../../assets/bed.svg';
@@ -58,6 +59,9 @@ const Project = () => {
 			<Navbar transparent />
 
 			<header style={{ backgroundImage: `url(${project.coverImage})` }}>
+				<div className="back" onClick={() => navigate(-1)}>
+					<img src={back} alt="back" />
+				</div>
 				<div className="heading">
 					<p className="type">{project.category}</p>
 					<h1>{project.title}</h1>
@@ -77,14 +81,14 @@ const Project = () => {
 					<img src={sofa} alt="" />
 					<div>
 						<p className="spec-name">Living Rooms</p>
-						<div className="spec">{project.livingRooms} living rooms</div>
+						<div className="spec">{project.livingRooms} living room(s)</div>
 					</div>
 				</div>
 				<div className="spec-wrapper color3">
 					<img src={bed} alt="" />
 					<div>
 						<p className="spec-name">Bedrooms</p>
-						<div className="spec">{project.bedRooms} bedrooms</div>
+						<div className="spec">{project.bedRooms} bedroom(s)</div>
 					</div>
 				</div>
 				<div className="spec-wrapper color4">

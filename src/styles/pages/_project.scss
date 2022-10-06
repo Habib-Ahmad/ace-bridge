@@ -2,9 +2,26 @@
 
 .project {
 	header {
+		position: relative;
 		height: 80vh;
 		background-color: #021c38e0;
+		color: $color-white;
+		background-position: center;
+		background-size: cover;
 		background-blend-mode: multiply;
+		display: grid;
+		place-items: center;
+
+		.back {
+			position: absolute;
+			cursor: pointer;
+			top: 15vh;
+			left: 100px;
+			@include responsive(md) {
+				top: 10vh;
+				left: 20px;
+			}
+		}
 
 		.heading {
 			display: block;
@@ -12,7 +29,7 @@
 			margin: auto;
 			text-align: center;
 			@include responsive(md) {
-				padding: 100px 5vw 0;
+				// padding: 100px 5vw 0;
 			}
 
 			.type {
@@ -34,7 +51,6 @@
 
 	.specifications {
 		display: flex;
-		align-items: flex-start;
 		height: 20vh;
 		@include responsive(md) {
 			height: 60vh;
@@ -88,7 +104,6 @@
 
 	.second-img {
 		width: 100%;
-		margin-top: -25px;
 		@include responsive(md) {
 			margin-top: -20px;
 			height: 400px;
