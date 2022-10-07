@@ -24,6 +24,7 @@ import { uploadImage } from '../../components/AddProject/functions';
 import ProgressImages from '../../components/AddProject/ProgressImages';
 import validationSchema from '../../components/AddProject/validationSchema';
 import back from '../../assets/back-btn.svg';
+import SliderImages from '../../components/AddProject/SliderImages';
 
 const AddProject = () => {
 	const [state, setState] = useState({
@@ -49,12 +50,14 @@ const AddProject = () => {
 	const [thumbnailPreview, setThumbnailPreview] = useState();
 	const [coverImagePreview, setCoverImagePreview] = useState();
 	const [floorPlanPreview, setFloorPlanPreview] = useState([]);
+	const [sliderImagesPreview, setSliderImagesPreview] = useState([]);
 	const [progImagesPreview, setProgImagesPreview] = useState([]);
 
 	const [thumbnailFile, setThumbnailFile] = useState();
 	const [coverImageFile, setcoverImageFile] = useState();
 	const [floorPlanFile, setFloorPlanFile] = useState([]);
 	const [progImagesFile, setProgImagesFile] = useState([]);
+	const [sliderImagesFile, setSliderImagesFile] = useState([]);
 
 	const navigate = useNavigate();
 	const location = useLocation().state;
@@ -90,6 +93,18 @@ const AddProject = () => {
 			}
 			return prev;
 		});
+		setSliderImagesPreview((prev) => {
+			if (location?.sliderImages) {
+				return location?.sliderImages;
+			}
+			return prev;
+		});
+		setSliderImagesFile((prev) => {
+			if (location?.sliderImages) {
+				return location?.sliderImages;
+			}
+			return prev;
+		});
 	}, [location]);
 
 	const handleClickOpen = () => {
@@ -109,9 +124,12 @@ const AddProject = () => {
 		setErrorMsg('');
 		if (
 			(!thumbnailFile && !values.thumbnail) ||
-			(!coverImageFile && !values.coverImage)
+			(!coverImageFile && !values.coverImage) ||
+			(!sliderImagesFile && !values.sliderImages)
 		) {
-			setErrorMsg('You have to upload a thumbnail and cover image');
+			setErrorMsg(
+				'You have to upload a thumbnail, cover image and images for the slider'
+			);
 			return;
 		}
 
@@ -144,6 +162,15 @@ const AddProject = () => {
 			[...progImagesFile].map(async (img) => {
 				if (typeof img !== 'string') {
 					return await uploadImage(img, 'progress-images');
+				}
+				return img;
+			})
+		);
+
+		values.sliderImages = await Promise.all(
+			[...sliderImagesFile].map(async (img) => {
+				if (typeof img !== 'string') {
+					return await uploadImage(img, 'slider-images');
 				}
 				return img;
 			})
@@ -240,6 +267,12 @@ const AddProject = () => {
 							setFile={setcoverImageFile}
 							preview={coverImagePreview}
 							value={state.coverImage}
+						/>
+
+						<SliderImages
+							setPreview={setSliderImagesPreview}
+							setFile={setSliderImagesFile}
+							preview={sliderImagesPreview}
 						/>
 
 						<FloorPlan

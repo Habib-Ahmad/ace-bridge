@@ -100,15 +100,10 @@
 	}
 
 	.slider {
-		padding: 0 10vw;
-		margin: 20px 0;
-		@include responsive(md) {
-			padding: 0 5vw;
-		}
+		padding: 0 5vw;
+		margin: 40px 0;
 
 		.custom-styles {
-			@include flex;
-
 			.slide {
 				height: 500px;
 
