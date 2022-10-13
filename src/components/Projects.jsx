@@ -13,7 +13,7 @@ const Projects = ({ projects }) => {
 				</div>
 			) : (
 				<div className="project-wrapper">
-					{projects.reverse().map((project) => (
+					{projects.map((project) => (
 						<ProjectCard key={project.id} {...project} />
 					))}
 				</div>

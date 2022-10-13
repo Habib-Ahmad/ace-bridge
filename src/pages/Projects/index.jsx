@@ -14,7 +14,8 @@ const Projects = () => {
 				...snapDoc.data(),
 				id: snapDoc.id,
 			}));
-			setprojectList(data);
+			const sortedData = data.sort((a, b) => (a.order > b.order ? 1 : -1));
+			setprojectList(sortedData);
 		});
 	};
 
