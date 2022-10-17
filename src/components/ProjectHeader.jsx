@@ -1,11 +1,19 @@
 import { useNavigate } from 'react-router';
+import BackgroundSlider from 'react-background-slider';
 import back from '../assets/back-btn-white.svg';
+
+const Slider = BackgroundSlider['react-background-slider'].default;
 
 const ProjectHeader = ({ project }) => {
 	const navigate = useNavigate();
 
 	return (
-		<header style={{ backgroundImage: `url(${project.coverImage})` }}>
+		<header>
+			{project.sliderImages ? (
+				<Slider images={project.sliderImages} duration={5} transition={0.5} />
+			) : (
+				<></>
+			)}
 			<div className="back" onClick={() => navigate(-1)}>
 				<img src={back} alt="back" />
 			</div>

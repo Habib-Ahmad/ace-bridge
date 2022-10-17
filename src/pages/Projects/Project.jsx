@@ -7,7 +7,7 @@ import Progress from '../../components/Progress';
 import PaymentPlans from '../../components/PaymentPlans';
 import Facilities from '../../components/Facilities';
 import ProjectHeader from '../../components/ProjectHeader';
-import Slider from '../../components/Slider';
+// import Slider from '../../components/Slider';
 
 const Project = () => {
 	const [project, setProject] = useState({
@@ -48,7 +48,7 @@ const Project = () => {
 
 			<Specifications project={project} />
 
-			<Slider project={project} />
+			{/* <Slider project={project} /> */}
 
 			<div className="content-wrapper">
 				<PaymentPlans project={project} />

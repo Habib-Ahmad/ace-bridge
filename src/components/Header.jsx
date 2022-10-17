@@ -24,7 +24,7 @@ const Header = () => {
 			<div className="heading-wrapper">
 				<h1>Creating Urban Lifestyle Build to Last...</h1>
 				<img src={underline} alt="" />
-				<Link to="#projects">Get Started</Link>
+				<Link to="#projects">Explore</Link>
 			</div>
 		</header>
 	);

@@ -4,13 +4,9 @@
 	header {
 		position: relative;
 		height: 80vh;
-		background-color: #021c38e0;
+		background-color: #021c3893;
 		color: $color-white;
-		background-position: center;
-		background-size: cover;
-		background-blend-mode: multiply;
 		display: grid;
-		place-items: center;
 
 		.back {
 			position: absolute;
@@ -24,9 +20,7 @@
 		}
 
 		.heading {
-			display: block;
-			width: fit-content;
-			margin: auto;
+			padding: 20px;
 			text-align: center;
 
 			.type {
