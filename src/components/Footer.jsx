@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router';
 import { Button, IconButton } from '@mui/material';
 import logo from '../assets/logo-white.svg';
-import linkedin from '../assets/footer/linkedin.svg';
-import messenger from '../assets/footer/messenger.svg';
+import facebook from '../assets/footer/facebook.svg';
 import twitter from '../assets/footer/twitter.svg';
-import twoo from '../assets/footer/twoo.svg';
+import instagram from '../assets/footer/instagram.svg';
 
 const Footer = () => {
 	const navigate = useNavigate();
@@ -39,7 +38,7 @@ const Footer = () => {
 					<h4>Social Media</h4>
 					<div className="social-links-wrapper">
 						{socialMediaLinks.map((link) => (
-							<IconButton key={link.name} onClick={() => navigate(link.to)}>
+							<IconButton key={link.name} href={link.to} target="_blank">
 								<img src={link.icon} alt={link.name} />
 							</IconButton>
 						))}
@@ -73,23 +72,18 @@ const links = [
 
 const socialMediaLinks = [
 	{
-		name: 'linkedin',
-		icon: linkedin,
-		to: '',
-	},
-	{
-		name: 'messenger',
-		icon: messenger,
-		to: '',
+		name: 'facebook',
+		icon: facebook,
+		to: 'https://www.facebook.com/profile.php?id=100086924907409',
 	},
 	{
 		name: 'twitter',
 		icon: twitter,
-		to: '',
+		to: 'https://twitter.com/acebridge_ltd',
 	},
 	{
-		name: 'twoo',
-		icon: twoo,
-		to: '',
+		name: 'instagram',
+		icon: instagram,
+		to: 'https://instagram.com/acebridgeltd',
 	},
 ];
