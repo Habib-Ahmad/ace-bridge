@@ -131,8 +131,8 @@ const links = [
 		name: 'Contact',
 		to: '/contact-us',
 	},
-	{
-		name: 'Admin',
-		to: '/admin',
-	},
+	// {
+	// 	name: 'Admin',
+	// 	to: '/admin',
+	// },
 ];

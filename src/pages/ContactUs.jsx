@@ -28,7 +28,7 @@ const ContactUs = () => {
 				<div className="details" data-aos="fade-up" data-aos-delay="300">
 					<h3>Lets get your dream house</h3>
 					<p>
-						Give us a call or drop by anytime, we endevour to answear all
+						Give us a call or drop by anytime, we endevour to answer all
 						enquieries witin 24 hours on Business Days, we will be happy to
 						answer your questions
 					</p>
