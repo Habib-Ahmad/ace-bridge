@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.290f62de.css",
+    "main.js": "/static/js/main.509511ee.js",
+    "static/media/facilities.png": "/static/media/facilities.d0909b74cffea47b0d96.png",
+    "static/media/polaris.svg": "/static/media/polaris.9d461b6edc4eceeb5c73007f38ea6b32.svg",
+    "static/media/braverock.png": "/static/media/braverock.4d602ded2cb87ae9fb7b.png",
+    "static/media/switchbox.png": "/static/media/switchbox.3ee384b18a91b80ed32c.png",
+    "static/media/co-financing.svg": "/static/media/co-financing.0d79346267ac8720ed3800fd1e4d0907.svg",
+    "static/media/logo.svg": "/static/media/logo.ae85e01a9a252ef6a1b944532f4eef7e.svg",
+    "static/media/logo-white.svg": "/static/media/logo-white.6d90d5200ff14a73639c15cd48054265.svg",
+    "static/media/purchase.svg": "/static/media/purchase.bfffa9657346205e6384ac916f4c2cb6.svg",
+    "static/media/mission.svg": "/static/media/mission.f96f1a4501bf610db5cc87cf4d8e0224.svg",
+    "static/media/flag.svg": "/static/media/flag.e90eaf02c9937cc2e666094e2e0ea440.svg",
+    "static/media/core-values.svg": "/static/media/core-values.708e8feb72c4399e4a66d8b34937ad06.svg",
+    "static/media/phone.svg": "/static/media/phone.06c7d340e8e72cc4806fac111eb23680.svg",
+    "static/media/instagram.svg": "/static/media/instagram.738f1c65f1fe598d325f032481f7113a.svg",
+    "static/media/vision.svg": "/static/media/vision.4bfe7143aa78c8e88d0e18f74a7c1b77.svg",
+    "static/media/twitter.svg": "/static/media/twitter.f09531e3794774a24343129819843fe4.svg",
+    "static/media/bed.svg": "/static/media/bed.292d3ffd40259dd77a83c3d19c287d35.svg",
+    "static/media/email.svg": "/static/media/email.4882bc899afd1266df5667d317fec3d4.svg",
+    "static/media/house.svg": "/static/media/house.af6daf2914d4137d0f1c930e5ff998bc.svg",
+    "static/media/btn-arrow.svg": "/static/media/btn-arrow.a83434791aca38ba5340f65707d17ca4.svg",
+    "static/media/address.svg": "/static/media/address.ed22d9a28c810c4d9f7646eb2953a7a0.svg",
+    "index.html": "/index.html",
+    "static/media/sofa.svg": "/static/media/sofa.c9f626f0231c74b682245cf403f82149.svg",
+    "static/media/facebook.svg": "/static/media/facebook.a56b88d60094899e2ed4c2d02dea8757.svg",
+    "static/media/real-estate.svg": "/static/media/real-estate.260802f5d1a08a68104bbf036c922efb.svg",
+    "static/media/avatar.svg": "/static/media/avatar.86db151cab978a8cfea325a100bdee15.svg",
+    "static/media/back-btn-white.svg": "/static/media/back-btn-white.e82511048cbb83c8491c2062f4f26e10.svg",
+    "static/media/back-btn.svg": "/static/media/back-btn.ca40e70b820f37764c3c3dc96c5c948d.svg",
+    "static/media/menu-white.svg": "/static/media/menu-white.91ee2b9efdd3843fa087aba8b5157a36.svg",
+    "static/media/underline.svg": "/static/media/underline.6c01ec13e0e64e1118eb2917437e045a.svg",
+    "static/media/menu.svg": "/static/media/menu.26367d6fa9e36dbec5c94951ef36baed.svg",
+    "static/media/corner-border.svg": "/static/media/corner-border.8b4a8177816707dbae14724fd7553cfe.svg",
+    "main.290f62de.css.map": "/static/css/main.290f62de.css.map",
+    "main.509511ee.js.map": "/static/js/main.509511ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.290f62de.css",
+    "static/js/main.509511ee.js"
+  ]
+}
