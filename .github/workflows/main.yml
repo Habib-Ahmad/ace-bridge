@@ -19,7 +19,8 @@ jobs:
           node-version: '16'
 
       - name: Build Project
-        run: npm install
+        run: ls
+          npm install
           npm run build
 
       - name: Sync files
@@ -28,5 +29,5 @@ jobs:
           server: ftp.acebridge.ng
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local-dir: build/
+          local-dir: ./build/
           server-dir: ./
