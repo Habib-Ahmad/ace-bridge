@@ -128,11 +128,11 @@ const links = [
 		to: '/projects',
 	},
 	{
+		name: 'Services',
+		to: '/services',
+	},
+	{
 		name: 'Contact',
 		to: '/contact-us',
 	},
-	// {
-	// 	name: 'Admin',
-	// 	to: '/admin',
-	// },
 ];

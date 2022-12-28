@@ -6,6 +6,7 @@ import Admin from '../pages/Admin';
 import AdminProjects from '../pages/Admin/Projects';
 import AddProject from '../pages/Admin/AddProject';
 import NotFound from '../pages/NotFound';
+import Services from '../pages/Services';
 
 export const appRoutes = [
 	{
@@ -19,6 +20,10 @@ export const appRoutes = [
 	{
 		to: '/projects/:id',
 		element: <Project />,
+	},
+	{
+		to: '/services',
+		element: <Services />,
 	},
 	{
 		to: '/contact-us',
