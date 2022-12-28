@@ -28,4 +28,4 @@ jobs:
           server: ftp.acebridge.ng
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: /
+          server-dir: public_html/
