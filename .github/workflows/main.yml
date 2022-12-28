@@ -28,5 +28,5 @@ jobs:
           server: ftp.acebridge.ng
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local-dir: build/
+          local-dir: ./build
           server-dir: ./
