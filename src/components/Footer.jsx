@@ -65,6 +65,10 @@ const links = [
 		to: '#about',
 	},
 	{
+		name: 'Services',
+		to: '/services',
+	},
+	{
 		name: 'Contact',
 		to: '/contact-us',
 	},

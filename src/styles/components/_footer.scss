@@ -19,8 +19,8 @@
 		}
 
 		& > * {
-			@include responsive(sm) {
-				margin-bottom: 50px;
+			@include responsive(md) {
+				margin: 0 10px 50px;
 			}
 		}
 
